@@ -1,0 +1,148 @@
+@import "mixins-media";
+
+@mixin font-smoothing {
+  @include retina {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@mixin hack-firefox {
+  .browser-firefox & {
+    @content;
+  }
+}
+
+@mixin placeholder-style {
+  &::-webkit-input-placeholder  { @content; } // Safari and Chrome
+}
+
+@mixin appearance($type) {
+  -webkit-appearance: $type;
+  -moz-appearance: $type;
+  -ms-appearance: $type;
+  appearance: $type;
+}
+
+@mixin round($size) {
+  width: $size;
+  height: $size;
+  border-radius: $size / 2;
+}
+
+@mixin without-number-spin-button {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+  -moz-appearance: textfield;
+}
+
+@mixin centered-content($width, $height, $padding: 0) {
+  display: inline-block;
+  padding: $padding;
+  width: $width;
+  height: $height;
+  line-height: $height;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@mixin centered-position-absolute($width, $height) {
+  width: $width;
+  height: $height;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -#{$height / 2};
+  margin-left: -#{$width / 2};
+}
+
+@mixin full-fill-position-absolute {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+@mixin full-fill-position-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin form-icon-color {
+  @for $index from 1 through 5 {
+    $color: nth($form-colors, $index);
+    &.form-color-#{$index} {
+      color: $color;
+    }
+  }
+}
+
+@mixin form-icon-example-color {
+  @for $index from 1 through 5 {
+    $color: nth($form-colors, $index);
+    &.form-color-#{$index} {
+      background-color: $color;
+    }
+  }
+}
+
+/* used for font size smaller than 12px */
+@mixin small-font-size($value) {
+  -webkit-text-size-adjust: none;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: #{$value}px;
+  /* only for chrome */
+  @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    font-size: 12px;
+    -webkit-transform: scale(#{$value / 12});
+    -o-transform: scale(1);
+    letter-spacing: 1px;
+  }
+}
+
+@mixin gd-progress-bar($width:200px, $barNormalColor: $sea-blue-light, $barUrgentColor:#D9534F) {
+  .gd-progress-bar {
+    position: relative;
+    width: $width;
+    max-width: 100%;
+    height: 6px;
+    background: $graphite-black;
+    display: inline-block;
+    border-radius: 40px;
+    @include box-shadow(inset -1px 1px 1px darken($graphite-black, 10%));
+    .gd-progress-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 6px;
+      background: $barNormalColor;
+      width: 0;
+      border-radius: 40px;
+    }
+    &.urgent {
+      .gd-progress-inner {
+        background: $barUrgentColor;
+      }
+    }
+  }
+}
+
+@mixin filter($filter-type,$filter-amount) {
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+  -o-filter: $filter-type+unquote('(#{$filter-amount})');
+  filter: $filter-type+unquote('(#{$filter-amount})');
+}
+
+@mixin box-shadow-normal {
+  @include box-shadow(0 2px 4px rgba(0, 0, 0, .2));
+}

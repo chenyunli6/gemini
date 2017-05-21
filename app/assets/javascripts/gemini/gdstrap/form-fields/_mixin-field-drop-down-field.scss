@@ -1,0 +1,69 @@
+@mixin dropdown-wrapper {
+  .dropdown-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: $form-control-height-normal;
+    @include phone-device($include-preview: false) {
+      height: $form-control-height-mobile;
+    }
+    select {
+      @include appearance(none);
+      background: none;
+      border: 0;
+      padding-right: 24px;
+      vertical-align: top;
+      @include full-fill-position-absolute;
+      z-index: 3;
+      & + .dropdown-bg {
+        @include full-fill-position-absolute;
+        border: 1px solid $form-control-border-color;
+        border-radius: $form-control-border-radius;
+        @include gradient-vertical(#FFF, #F9F9F9);
+        z-index: 1;
+        height: $form-control-height-normal;
+        @include phone-device($include-preview: false) {
+          height: $form-control-height-mobile;
+        }
+      }
+      &:active, &:focus {
+        background: none;
+        border: 0;
+        & + .dropdown-bg {
+          @include box-shadow(inset 0px 1px 2px rgba(0,0,0,0.3));
+        }
+      }
+    }
+    .dropdown-trigger {
+      position: absolute;
+      top: $form-control-height-normal / 2;
+      right: 10px;
+      margin-top: -2px;
+      @include triangle-down(8px, 6px, $text-color);
+      z-index: 2;
+      @include phone-device($include-preview: false) {
+        top: $form-control-height-mobile / 2;
+      }
+    }
+  }
+}
+
+@mixin field-drop-down-field {
+  @include dropdown-wrapper;
+  .field-drop-down {
+    .dropdown-wrapper {
+      margin-bottom: 5px;
+      @include form-control-max-width;
+    }
+    .other-choice-input {
+      vertical-align: top;
+    }
+
+    &.custom-grids {
+      .dropdown-wrapper {
+        width: 100%;
+        max-width: none;
+      }
+    }
+  }
+}

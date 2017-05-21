@@ -1,0 +1,24 @@
+@import "switchery";
+
+$normal-switchery-width: 50px;
+$normal-switchery-height: $normal-switchery-width / 2;
+$small-switchery-width: 32px;
+$small-switchery-height: $small-switchery-width / 2;
+.switchery {
+  width: $normal-switchery-width;
+  height: $normal-switchery-height;
+  border-color: $dark-grey-lightest;
+  & > small {
+    width: $normal-switchery-height;
+    height: $normal-switchery-height;
+    box-shadow: 0 0 2px rgba(0,0,0,0.31);
+  }
+  &.switchery-small {
+    width: $small-switchery-width;
+    height: $small-switchery-height;
+    & > small {
+      width: $small-switchery-height;
+      height: $small-switchery-height;
+    }
+  }
+}

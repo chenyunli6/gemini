@@ -1,0 +1,215 @@
+.gd-tooltip-light {
+  border-radius: 3px;
+  border: 1px solid $slate-grey-light;
+  background: #fff;
+  color: $text-color;
+
+  .tooltipster-title {
+    font-size: 14px;
+  }
+
+  .tooltipster-content {
+    font-size: 12px;
+    line-height: $line-height-computed;
+    padding: 8px 10px;
+  }
+
+  .label {
+    margin: 5px 0;
+    display: inline-block;
+  }
+
+  &.gd-tooltip-mini {
+    background: $dark-grey-light;
+    border-color: $dark-grey-light;
+    color: #FFF;
+    .tooltipster-content {
+      padding: 6px 15px;
+      a {
+        color: #FFF;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.gd-tooltip-max-width {
+    max-width: 400px;
+  }
+  
+  &.gd-tooltip-help-document {
+    background-color: $label-warning-bg;
+    @include box-shadow-normal;
+    border: 1px solid $gold;
+    .tooltipster-content {
+      padding: 10px 15px;
+    }
+    h5 {
+      margin-bottom: 4px;
+      margin-top: 4px;
+    }
+    p {
+      margin-bottom: 0;
+      line-height: 1.5em;
+      &.footer {
+        border-top: 1px dashed $slate-grey;
+        margin-top: 2px;
+        padding-top: 2px;
+      }
+    }
+  }
+
+  &.gd-tooltip-list-over {
+    .tooltipster-content {
+      padding: 0;
+      ul {
+        li {
+          padding: 10px 15px;
+          &:hover {
+            background-color: $popup-list-hover-bg;
+          }
+        }
+      }
+    }
+  }
+
+  &.gd-tooltip-menu-over {
+    @extend .gd-tooltip-list-over;
+    @include box-shadow(0 2px 4px rgba(0, 0, 0, .2));
+    .tooltipster-content {
+      padding: 8px 0;
+      ul {
+        min-width: 150px;
+        li {
+          padding: 5px 10px;
+          line-height: 200%;
+          @include text-overflow;
+          cursor: pointer;
+          margin: 1px 0;
+          a {
+            display: block;
+            &, &:hover, &:hover {
+              color: $text-color;
+              text-decoration: none;
+            }
+          }
+          i {
+            &.item-icon {
+              font-size: $tooltip-list-icon-font-size;
+              color: $tooltip-list-icon-color;
+            }
+            &.arrow-icon {
+              position: absolute;
+              font-size: 12px;
+              right: 10px;
+            }
+          }
+          &.selected, &.current {
+            @include prefix-selected;
+          }
+          &.separator {
+            padding: 0;
+            margin: 5px 0;
+            border-top: 1px solid $slate-grey-light;
+          }
+          &.email-with-plan {
+            cursor: auto;
+            color: $dark-grey-lighter;
+            &:hover {
+              background-color: #FFF;
+            }
+          }
+        }
+      }
+
+      .wechat-qrcode {
+        width: 160px;
+        & + div {
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+
+  &.gd-tooltip-has-subview {
+    .tooltipster-content {
+      .header {
+        a {
+          position: absolute;
+          text-decoration: none;
+          display: inline-block;
+          &.back-to-settings {
+            left: 15px;
+          }
+          &.setting-action {
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  &.gd-tooltip-cascade-horizontal {
+    ul, textarea {
+      display: inline-block;
+      vertical-align: top;
+      width: 190px;
+      height: 220px;
+      overflow-y: auto;
+      line-height: 1.6;
+      & + ul, & + textarea {
+        margin-left: 10px;
+      }
+    }
+    ul {
+      list-style: none;
+      padding: 4px 0;
+      margin: 0;
+      border: 1px solid $slate-grey-light;
+      > li {
+        padding: 0 6px;
+        cursor: pointer;
+        &:hover, &.selected {
+          background-color: $mouse-grey;
+        }
+      }
+    }
+    textarea {
+      resize: none;
+      padding: 4px 6px;
+      &:not(:focus) {
+        border-color: $slate-grey-light;
+      }
+    }
+  }
+}
+
+.tooltipster-arrow-bottom, .tooltipster-arrow-bottom-right, .tooltipster-arrow-bottom-left {
+  span, .tooltipster-arrow-border {
+    top: -8px;
+  }
+}
+.tooltipster-arrow-top, .tooltipster-arrow-top-right, .tooltipster-arrow-top-left {
+  span, .tooltipster-arrow-border {
+    bottom: -8px;
+  }
+}
+.tooltipster-arrow-left, .tooltipster-arrow-left {
+  span, .tooltipster-arrow-border {
+    right: -8px;
+  }
+}
+.tooltipster-arrow-right, .tooltipster-arrow-right {
+  span, .tooltipster-arrow-border {
+    left: -8px;
+  }
+}
+
+.gd-tooltip-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: $zindex-gd-tooltip-backdrop;
+}

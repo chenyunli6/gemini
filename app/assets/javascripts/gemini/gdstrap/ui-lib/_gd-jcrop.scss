@@ -1,0 +1,7 @@
+@import "columbus/jcrop";
+
+// qiniu assets fix
+.jcrop-vline,
+.jcrop-hline {
+  background-image: image-url("Jcrop.gif");
+}

@@ -1,0 +1,79 @@
+@keyframes gd-animation-tada {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  8%, 16% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  24%, 40%, 56%, 72% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  32%, 48%, 64% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  80% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes gd-animation-pulse {
+  0% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  35% {
+    transform: scale3d(1.02, 1.02, 1.02);
+  }
+
+  100% {
+    transform: scale3d(.97, .97, .97);
+  }
+}
+
+@keyframes gd-animation-bounce-in {
+  0% {
+    @include scale(0);
+  }
+
+  75% {
+    @include scale(0.5);
+  }
+
+  100% {
+    @include scale(0.4);
+  }
+}
+
+@keyframes gd-animation-shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(5px, 0, 0);
+  }
+}
+
+
+.gd-animated {
+  &.gd-animation-tada {
+    @include animation(gd-animation-tada 3s 1s 3 ease-in);
+  }
+  &.gd-animation-pulse {
+    @include animation(gd-animation-pulse 1s 0s infinite ease-in-out);
+  }
+  &.gd-animation-shake {
+    @include animation(gd-animation-shake 1s 0s infinite ease-in-out);
+  }
+  &.gd-animation-bounce-in {
+    @include animation(gd-animation-bounce-in 0.3s 0s ease-in);
+  }
+}

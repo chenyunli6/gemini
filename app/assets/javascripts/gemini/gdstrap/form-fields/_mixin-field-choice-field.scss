@@ -1,0 +1,148 @@
+@mixin choice-wrapper($choice-size) {
+  .check-box-wrapper, .radio-button-wrapper {
+    position: relative;
+    @include centered-content($choice-size, $choice-size);
+    margin-top: -3px;
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      left: -9999px;
+      visibility: hidden;
+      + .selected-icon {
+        display: inline-block;
+        background: #FFF;
+        border: 1px solid $slate-grey;
+        @include transition(background .28s ease);
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      &:active:not([disabled]) + .selected-icon {
+        @include box-shadow(inset 1px 1px 1px rgba(0, 0, 0, 0.15));
+      }
+      &:checked + .selected-icon {
+        background-color: $sea-blue;
+        border-color: $sea-blue;
+      }
+      &[disabled] + .selected-icon {
+        background-color: $dark-grey-lightest;
+      }
+    }
+    input[type="radio"] {
+      + .selected-icon {
+        @include round($choice-size);
+        &:after {
+          background: #FFF;
+          @include round($choice-size);
+          @include scale(0);
+        }
+      }
+      &:checked + .selected-icon:after {
+        //@extend .gd-animated;
+        //@extend .gd-animation-bounce-in;
+        @include scale(0.4);
+      }
+    }
+    input[type="checkbox"] {
+      + .selected-icon {
+        @include square($choice-size);
+        border-radius: $form-control-border-radius;
+        &:after {
+          top: 1px;
+          width: 7px;
+          height: 11px;
+          border: 2px solid transparent;
+          @include rotate(43deg);
+          @include transform-origin(100% 100%);
+          //@include transition(all .28s ease);
+        }
+      }
+      &:checked + .selected-icon:after {
+        border-bottom-color: #FFF;
+        border-right-color: #FFF;
+      }
+    }
+  }
+}
+
+@mixin field-choice-field {
+  @include choice-wrapper($form-control-choice-size);
+  @include phone-device {
+    @include choice-wrapper($form-control-choice-size-mobile);
+    .check-box-wrapper, .radio-button-wrapper {
+      input[type="checkbox"] {
+        + .selected-icon:after {
+          width: 8px;
+          height: 14px;
+        }
+      }
+    }
+  }
+  @include mobile-device {
+    .radio, .checkbox {
+      > *:not(.image-center) {
+        pointer-events: none;
+      }
+    }
+  }
+  .field-radio-button, .field-check-box {
+    .choices label {
+      font-size: 1.167em;
+    }
+    .other-choice-area {
+      &.inline {
+        display: inline-block;
+        vertical-align: top;
+      }
+      label {
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 0;
+        margin-right: 0;
+      }
+      .other-choice-input {
+        width: auto;
+        margin-left: 4px;
+        background: $form-control-bg-color;
+        height: 100%;
+      }
+    }
+    @include phone-device {
+      .choices {
+        background: $form-control-bg-color;
+        border: 1px solid $slate-grey-light;
+        border-radius: 2px;
+        label {
+          display: block;
+          margin: 0;
+          padding: 10px;
+          white-space: normal;
+          &:active:not(.disabled) {
+            background: $mouse-grey;
+            @include box-shadow(inset 0px 1px 1px rgba(#000, 0.1));
+          }
+        }
+        .other-choice-area {
+          width: 100%;
+          .other-choice-input-container {
+            padding: 0 10px 10px;
+            display: block;
+          }
+          .other-choice-input {
+            margin: 0;
+            width: 100%;
+            height: 2em;
+          }
+        }
+        label, .other-choice-area {
+          & + label, & + .other-choice-area {
+            border-top: 1px solid $slate-grey-light;
+          }
+        }
+      }
+    }
+  }
+}

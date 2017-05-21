@@ -1,0 +1,206 @@
+$color-suffixes: '' -light -lighter -lightest;
+$orange-colors: $orange $orange-light $orange-lighter $orange-lightest;
+$rose-colors: $rose $rose-light $rose-lighter $rose-lightest;
+$watermelon-colors: $watermelon $watermelon-light $watermelon-lighter $watermelon-lightest;
+$grass-colors: $grass $grass-light $grass-lighter $grass-lightest;
+$sky-blue-colors: $sky-blue $sky-blue-light $sky-blue-lighter $sky-blue-lightest;
+$sea-blue-colors: $sea-blue $sea-blue-light $sea-blue-lighter $sea-blue-lightest;
+$dark-grey-colors: $dark-grey $dark-grey-light $dark-grey-lighter $dark-grey-lightest;
+$bronze-colors: $bronze $bronze-light $bronze-lighter $bronze-lightest;
+$gold-colors: $gold $gold-light $gold-lighter $gold-lightest;
+$slate-grey-colors: $slate-grey $slate-grey-light;
+$silver-colors: $silver $silver-light;
+$mouse-grey-colors: $mouse-grey;
+$graphite-black-colors: $graphite-black;
+$snow-white-colors: $snow-white;
+$dark-grey-secondary-colors: $dark-grey-secondary;
+$grayish-blue-colors: $grayish-blue;
+$light-blue-colors: $light-blue;
+$wordpress-blue-colors: $wordpress-blue;
+$alipay-blue-colors: $alipay-blue;
+$weixin-green-colors: $weixin-green;
+$pingpp-black-colors: $pingpp-black;
+
+@mixin colors-bg($color-name, $colors, $max-count: 4) {
+  @for $item from 1 through $max-count {
+    $color: nth($colors, $item);
+    $suffix: nth($color-suffixes, $item);
+    &.color-#{$color-name}#{$suffix} {
+      background: $color;
+      &:after {
+        content: '#{$color}';
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+#basic_colors {
+  ul {
+    margin: 5px 0 20px;
+    li {
+      .color-box {
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        margin-right: 5px;
+        vertical-align: top;
+        &:after {
+          display: block;
+          margin-top: 14px;
+          margin-left: 65px;
+          font-size: 12px;
+          color: $dark-grey-lighter;
+        }
+        @include colors-bg(orange, $orange-colors);
+        @include colors-bg(rose, $rose-colors);
+        @include colors-bg(watermelon, $watermelon-colors);
+        @include colors-bg(grass, $grass-colors);
+        @include colors-bg(sky-blue, $sky-blue-colors);
+        @include colors-bg(sea-blue, $sea-blue-colors);
+        @include colors-bg(dark-grey, $dark-grey-colors);
+        @include colors-bg(bronze, $bronze-colors);
+        @include colors-bg(gold, $gold-colors);
+        @include colors-bg(slate-grey, $slate-grey-colors, 2);
+        @include colors-bg(silver, $silver-colors, 2);
+        @include colors-bg(mouse-grey, $mouse-grey-colors, 1);
+        @include colors-bg(graphite-black, $graphite-black-colors, 1);
+        @include colors-bg(snow-white, $snow-white-colors, 1);
+        @include colors-bg(dark-grey-secondary, $dark-grey-secondary-colors, 1);
+        @include colors-bg(grayish-blue, $grayish-blue-colors, 1);
+        @include colors-bg(light-blue, $light-blue-colors, 1);
+        @include colors-bg(wordpress-blue, $wordpress-blue-colors, 1);
+        @include colors-bg(alipay-blue, $alipay-blue-colors, 1);
+        @include colors-bg(weixin-green, $weixin-green-colors, 1);
+        @include colors-bg(pingpp-black, $pingpp-black-colors, 1);
+        @for $item from 1 through 5 {
+          $color: nth($form-colors, $item);
+          &.color-form-#{$item} {
+            background: $color;
+          }
+        }
+      }
+      span {
+        font-size: 14px;
+        vertical-align: top;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+#basic_icons {
+  .icon-list i {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+}
+
+#basic_grids {
+  .grids-demo {
+    [class^=col-], [class^=gd-col-] {
+      border: 1px solid $border-color;
+      padding: 8px;
+      background-color: $silver-light;
+    }
+    .row + .row {
+      margin-top: 10px;
+    }
+
+    & + .grids-demo {
+      margin-top: 20px;
+    }
+  }
+}
+
+#basic_layouts {
+  .demo-layout {
+    background-color: $silver;
+    border: 1px solid $border-color;
+  }
+  .demo-layout-container {
+    max-width: 85%;
+  }
+  .demo-layout-header {
+    padding: 2%;
+    background-color: $main-dark-bg-color;
+    margin-bottom: 3%;
+  }
+  .demo-layout-content {
+    background-color: white;
+    padding-bottom: 110%;
+  }
+  .demo-layout-sidebar {
+    hr {
+      border-top-color: $main-font-color;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .tabs-left {
+      padding-bottom: 500%;
+    }
+  }
+  .demo-layout-block {
+    background-color: white;
+    padding-bottom: 10%;
+    &.content-section {
+      padding-bottom: 31%;
+      & + .content-section {
+        margin-top: 4%;
+      }
+    }
+  }
+  .demo-layout-row + .demo-layout-row {
+    margin-top: 2%;
+  }
+  .demo-layout-row-high {
+    .demo-layout-block {
+      padding-bottom: 59%;
+    }
+  }
+  .demo-layout-fluid {
+    .demo-layout-block {
+      padding-bottom: 83%;
+    }
+  }
+  .demo-layout-modal {
+    .demo-layout-header {
+      margin-bottom: 0;
+    }
+    .modal {
+      position: relative;
+      display: block;
+    }
+    .modal-dialog {
+      max-width: 90%;
+      margin: 15% auto;
+    }
+    .modal-content {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .demo-layout-block {
+      padding-bottom: 58%;
+    }
+  }
+}
+
+#basic_typography {
+  table {
+    background-color: transparent;
+    tbody > tr > td {
+      border: 0;
+    }
+  }
+
+  #font_weight_demo {
+    font-size: 14px;
+  }
+
+  #content_sub_sections_demo {
+    .gd-btn-info:last-child {
+      margin-left: 0;
+    }
+  }
+}

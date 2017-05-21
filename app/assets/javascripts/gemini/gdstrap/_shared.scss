@@ -1,0 +1,94 @@
+$icon-wrapper-size: 40px;
+$well-setting-padding: 15px;
+.add-account-container {
+  background-color: white;
+  width: 30%;
+  height: $icon-wrapper-size + $well-setting-padding * 2;
+  margin: 0 25px 15px 0;
+  line-height: 25px;
+  padding: $well-setting-padding;
+  float: left;
+  border-radius: 3px;
+  border: 1px solid $border-color;
+  position: relative;
+  color: $text-color;
+
+  &:focus, &:hover {
+    border: 1px solid $main-link-color;
+    .weixin-icon-wrapper {
+      background: $weixin-green;
+    }
+    .smtp-icon-wrapper {
+      background: $grass;
+    }
+    .content {
+      color: $main-link-color;
+    }
+  }
+
+  .icon-wrapper {
+    @include centered-content($icon-wrapper-size, $icon-wrapper-size);
+    border-radius: $icon-wrapper-size;
+    background: $slate-grey;
+    color: white;
+    position: absolute;
+    left: $well-setting-padding;
+    right: 0;
+    i {
+      color: #FFF;
+      vertical-align: middle;
+      font-size: 22px;
+    }
+  }
+
+  .account-info {
+    display: inline-block;
+    padding-left: $icon-wrapper-size + 10px;
+    .content {
+      display: block;
+      margin-top: 8px;
+    }
+  }
+}
+
+.content-section {
+  background: #FFF;
+  border: 1px solid $graphite-black;
+  border-radius: $border-radius-small;
+  & + .content-section {
+    margin-top: 20px;
+  }
+
+  .section-header {
+    padding: 15px 25px;
+    border-bottom: 1px solid $graphite-black;
+    font-size: 14px;
+    line-height: 19px;
+    .title {
+      vertical-align: middle;
+    }
+  }
+
+  .section-body {
+    padding: 15px 25px;
+  }
+
+  .section-description {
+    margin-bottom: 20px;
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .content-sub-section {
+    select:last-child, input:last-child {
+      margin-bottom: 0;
+    }
+
+    & + .content-sub-section {
+      border-top: 1px solid $graphite-black;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+  }
+}

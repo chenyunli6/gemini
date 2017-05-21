@@ -1,0 +1,35 @@
+@mixin field-section-break {
+  .field-section-break {
+    hr {
+      border-top-color: $slate-grey;
+      border-top-style: dashed;
+      border-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    label.field-label {
+      cursor: text;
+    }
+
+    .field-description {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@mixin field-page-break {
+  .field-page-break {
+    hr {
+      border-top: 1px dashed #888;
+      border-bottom:none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    label.field-label {
+      cursor: text;
+    }
+  }
+
+}

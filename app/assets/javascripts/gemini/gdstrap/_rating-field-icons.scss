@@ -1,0 +1,48 @@
+$rating-types: (star heart sun tomato thumb happy shit rose diamond tree yeah flower beer strong money fire);
+$rating-icon-size: 20;
+$rating-icon-size-small: 14;
+$rating-icon-size-mobile: 24;
+
+@mixin rating-bg-size($size) {
+  background-size: #{$size * 3}px #{$size * length($rating-types)}px;
+  width: #{$size}px;
+  height: #{$size}px;
+}
+
+.rating-icon, .rating-icon-small {
+  background: transparent image-url("rating_icons_2x.png") no-repeat 0 0;
+  @include rating-bg-size($rating-icon-size);
+  display: inline-block;
+  &.rating-icon-small {
+    @include rating-bg-size($rating-icon-size-small);
+  }
+}
+.mobile .rating-icon {
+  @include rating-bg-size($rating-icon-size-mobile);
+}
+
+@each $rating-type in $rating-types {
+  $i: index($rating-types, $rating-type) - 1;
+  .rating-icon-#{"" + $rating-type} {
+    background-position: 0 -#{$rating-icon-size * $i}px;
+    &.highlight, &.hover {
+      background-position: -#{$rating-icon-size}px -#{$rating-icon-size * $i}px;
+    }
+    &.rating-icon-small {
+      background-position: 0 -#{$rating-icon-size-small * $i}px;
+      &.highlight, &.hover {
+        background-position: -#{$rating-icon-size-small}px -#{$rating-icon-size-small * $i}px;
+      }
+    }
+  }
+  .mobile .rating-icon.rating-icon-#{"" + $rating-type} {
+    background-position: 0 -#{$rating-icon-size-mobile * $i}px;
+    &.highlight {
+      background-position: -#{$rating-icon-size-mobile}px -#{$rating-icon-size-mobile * $i}px;
+    }
+    &.hover {
+      background-position: -#{$rating-icon-size-mobile * 2}px -#{$rating-icon-size-mobile * $i}px;
+    }
+  }
+}
+

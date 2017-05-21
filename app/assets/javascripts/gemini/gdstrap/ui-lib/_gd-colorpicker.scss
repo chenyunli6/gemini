@@ -1,0 +1,24 @@
+@import "columbus/colorpicker";
+
+// qiniu assets fix
+div.colorPicker-picker {
+  background: none;
+  position: relative;
+  &:after {
+    position: absolute;
+    content: '';
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 2px solid #BBB;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+}
+
+// box-sizing fix
+div.colorPicker-palette {
+  width: 214px;
+}

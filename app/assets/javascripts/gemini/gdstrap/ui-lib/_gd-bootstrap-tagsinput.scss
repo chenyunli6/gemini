@@ -1,0 +1,11 @@
+.bootstrap-tagsinput .tag [data-role="remove"] {
+  margin-left: 5px;
+  &:after {
+    content: '\00d7';
+    font-size: 14px;
+  }
+  &:hover, &:active {
+    box-shadow: none;
+    color: $main-link-color;
+  }
+}

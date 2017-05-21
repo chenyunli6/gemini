@@ -1,0 +1,45 @@
+table.gd-table {
+  @extend .table;
+  thead {
+    background: $table-header-bg;
+    font-weight: normal;
+    tr {
+      th {
+        border-bottom-width: 1px;
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        input {
+          margin-bottom: 0;
+        }
+        &.centered-content {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.gd-table-hover {
+    @extend .table-hover;
+  }
+
+  &.gd-table-bordered {
+    @extend .table-bordered;
+    > thead > tr > th {
+      border-bottom-width: 1px;
+    }
+  }
+
+  &.gd-table-slim {
+    > thead > tr > th {
+      padding: 4px;
+      font-weight: normal;
+    }
+    > tbody > tr > td {
+      padding: 3px 5px;
+    }
+  }
+}

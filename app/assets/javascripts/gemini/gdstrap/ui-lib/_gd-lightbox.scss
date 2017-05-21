@@ -1,0 +1,68 @@
+#lightboxOverlay {
+  @include opacity(.5);
+}
+
+#lightbox {
+  //.lb-outerContainer {
+  //  overflow: visible !important;
+  //}
+  //.lb-container {
+  //  max-height: 100%;
+  //  overflow-y: hidden;
+  //}
+  .lb-cancel {
+    background: image-url("new_loading.gif") no-repeat;
+  }
+  .lb-dataContainer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .lb-data {
+    color: white;
+    position: relative;
+    line-height: 16px;
+    padding: 0;
+    .lb-details {
+      //width: 60%;
+      //@include text-overflow;
+    }
+    .lb-closeContainer {
+      position: absolute;
+      right: -5px;
+      top: 0;
+    }
+    .lb-close {
+      &:after {
+        content: '\00d7';
+        font-size: 22px;
+        color: white;
+      }
+    }
+    .lb-number {
+      display: none!important;
+    }
+    .lb-caption {
+      line-height: 16px;
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+  .lb-nav a.lb-next {
+    margin-right: -55px;
+    &:hover {
+      background: image-url("next.png") right 48% no-repeat;
+    }
+    @include phone-device {
+      display: none!important;
+    }
+  }
+  .lb-nav a.lb-prev {
+    margin-left: -55px;
+    &:hover {
+      background: image-url("prev.png") left 48% no-repeat;
+    }
+    @include phone-device {
+      display: none!important;
+    }
+  }
+}

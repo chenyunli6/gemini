@@ -1,0 +1,22 @@
+.gd-carousel {
+  padding-bottom: 15px;
+  .carousel-indicators {
+    margin-bottom: 0;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+    li {
+      margin-left: 2px;
+      margin-right: 2px;
+      @include square(8px);
+
+      &.active {
+        margin-top: 1px;
+        margin-bottom: 1px;
+        @include square(8px);
+        border-color: transparent;
+      }
+    }
+  }
+}

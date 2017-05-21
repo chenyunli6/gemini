@@ -1,0 +1,241 @@
+.cke {
+  .cke_wysiwyg_div {
+    min-height: 50px;
+  }
+
+  .cke_editable {
+    padding: 5px 10px;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  a.cke_button {
+    padding: 3px 5px;
+  }
+  .cke_combo_text {
+    line-height: 24px;
+  }
+  .cke_combo__fontsize {
+    .cke_combo_inlinelabel {
+      font-size: 14px;
+      color: $dark-grey-light;
+      @extend .gd-icon !optional;
+      @extend .gd-icon-fontsize !optional;
+    }
+    .cke_combo_text {
+      width: 14px;
+    }
+  }
+
+  a.cke_combo_button, .cke_toolgroup {
+    margin-right: 5px;
+  }
+
+//  全屏模式
+  .cke_maximized {
+    font-size: 12px;
+    text-align: left;
+    .cke_contents {
+      overflow-y: auto;
+    }
+    .cke_source {
+      @include box-shadow(none);
+    }
+  }
+  .cke_widget_wrapper {
+    max-width: 100%;
+    .cke_widget_element.cke_placeholder {
+      @extend .tag;
+      @extend .label;
+      @extend .label-info;
+      padding: 0 4px;
+      margin-right: 2px;
+    }
+    &.cke_widget_focused {
+      > .cke_widget_element {
+        outline: none;
+      }
+      .cke_widget_element.cke_placeholder {
+        outline: none;
+        background-color: $sea-blue-light;
+        color: white;
+      }
+    }
+    &:hover > .cke_widget_element {
+      outline: 1px solid black;
+    }
+    .cke_widget_drag_handler_container {
+      display: none !important;
+    }
+  }
+
+  &.cke_chrome {
+    border: 1px solid $border-color!important;
+    box-shadow: none!important;
+    border-radius: 2px!important;
+  }
+}
+
+.cke_editor_field_notes {
+  .cke_combo_text {
+    padding-left: 5px;
+  }
+  .cke_combo_open {
+    margin-left: 0;
+    margin-right: 6px;
+  }
+  a.cke_button {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  a.cke_combo_button, .cke_toolgroup {
+    margin-right: 2px;
+  }
+}
+
+a.cke_combo_button,
+a.cke_button_on {
+  &:hover, &:focus, &:active, &.cke_button_on, .cke_combo_on & {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.17)!important;
+    border-color: $border-color!important;
+  }
+}
+
+.cke_dialog {
+  .cke_dialog_body {
+    border-radius: 6px;
+    border: 0;
+    @include box-shadow(0 1px 5px rgba(#000, 0.11));
+
+    label:not(:empty) {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .cke_dialog_ui_hbox label {
+      display: inline;
+    }
+
+    .cke_dialog_ui_checkbox label {
+      display: inline;
+    }
+
+    .cke_dialog_title {
+      padding: 18px 20px;
+      font-size: 16px;
+      font-weight: normal;
+      border-radius: 6px 6px 0 0;
+      border-bottom-color: $dark-grey-lightest;
+    }
+
+    .cke_dialog_close_button {
+      background: none !important;
+      top: 15px;
+      &:after {
+        content: '\00d7';
+        font-size: 22px;
+        color: $slate-grey-light;
+        &:hover {
+          color: $slate-grey;
+        }
+      }
+    }
+
+    .cke_dialog_contents {
+      border-radius: 0 0 6px 6px;
+      padding: 0;
+    }
+
+    .cke_dialog_contents_body {
+      padding: 15px 20px;
+    }
+
+    .cke_dialog_footer {
+      outline: none;
+      border-top: 1px solid $dark-grey-lightest;
+      padding: 15px 20px;
+      border-radius: 0 0 6px 6px;
+      text-align: left;
+      .cke_dialog_footer_buttons {
+        margin: 0;
+
+        a.cke_dialog_ui_button {
+          @extend .gd-btn;
+          span {
+            padding: 0;
+            text-shadow: none;
+            font-weight: normal;
+          }
+        }
+        a.cke_dialog_ui_button_ok {
+          @extend .gd-btn-primary;
+        }
+        a.cke_dialog_ui_button_cancel {
+          @extend .gd-btn-info;
+        }
+
+        .cke_dialog_ui_hbox_first {
+          padding-right: 10px;
+        }
+      }
+    }
+
+  }
+
+  &.cke_ltr .cke_dialog_close_button {
+    right: 18px;
+  }
+
+  .gdimage-preview {
+    $preview-height: 150px;
+    text-align: center;
+    background-color: $dark-grey-lightest;
+    height: $preview-height;
+    line-height: $preview-height;
+    img {
+      max-width: 100%;
+      max-height: $preview-height;
+      vertical-align: middle;
+      margin-top: -1px;
+    }
+  }
+
+  input.cke_dialog_ui_input_text {
+    margin-bottom: 0;
+  }
+
+  input.cke_dialog_ui_input_text,
+  input.cke_dialog_ui_input_password,
+  textarea.cke_dialog_ui_input_textarea {
+    background: #FFF;
+    border: 1px solid $form-control-border-color;
+    border-radius: $form-control-border-radius;
+    padding: 0 6px;
+    box-shadow: none;
+    &:focus {
+      border-color: $form-control-border-focus-color;
+    }
+  }
+
+
+  .fileinput-button {
+    position: relative;
+    @extend .gd-btn;
+    @extend .gd-btn-primary;
+    span {
+      color: $btn-primary-font-color;
+      line-height: 20px;
+    }
+    &:hover span {
+      color: $btn-primary-hover-font-color;
+    }
+
+    & + span {
+      display: inline-block;
+      padding-left: 10px;
+      line-height: 25px;
+    }
+  }
+
+}

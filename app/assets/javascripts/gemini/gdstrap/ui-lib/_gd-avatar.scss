@@ -1,0 +1,14 @@
+$avatar-xs: 20px;
+$avatar-sm: 32px;
+$avatar-md: 40px;
+$avatar-lg: 50px;
+$avatar-xl: 100px;
+$avatar-xxl: 258px;
+
+$avatar-sizes: (xs: 20px, sm: 32px, md: 40px, lg: 50px, xl: 100px, xxl: 258px);
+
+@each $avatar-size-key, $avatar-size in $avatar-sizes {
+  .avatar-#{$avatar-size-key} {
+    @include round($avatar-size);
+  }
+}

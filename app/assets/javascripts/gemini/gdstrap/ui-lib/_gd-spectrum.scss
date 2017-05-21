@@ -1,0 +1,37 @@
+@import "spectrum";
+
+$spectrum-padding: 3px;
+$spectrum-width: 48px;
+.gd-spectrum-replacer {
+  @include size($spectrum-width, $form-control-height-thin);
+  padding: $spectrum-padding;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  background: white;
+  .sp-dd {
+    display: none;
+  }
+  .sp-preview {
+    @include size(100%, 100%);
+    margin-right: 0;
+    border-color: $border-color;
+    border-radius: 2px;
+  }
+
+  &:hover, &.sp-active {
+    border-color: $sea-blue;
+  }
+}
+
+.gd-spectrum-container {
+  border-color: $border-color;
+  background: #FFF;
+  &, button, input, .sp-color, .sp-hue, .sp-clear {
+    font-family: $font-family-base;
+  }
+  .sp-input {
+    margin-bottom: 0;
+    width: 100%;
+    height: $form-control-height-thin;
+  }
+}

@@ -1,0 +1,225 @@
+$attachment-height: 38px;
+
+@mixin attachment-field($width:620px) {
+  @include clearfix;
+  .attachment-field {
+    position: relative;
+  }
+
+  input[type=file] {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    margin: 0;
+    width: 90%;
+    @include opacity(0);
+    z-index: -4;
+    &.origin-file-input {
+      position: static;
+      width: 100%;
+      @include opacity(1);
+      z-index: 0;
+    }
+  }
+
+  .attachment {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid $dark-grey-lightest;
+    margin-bottom: 6px;
+
+    .progress-bar {
+      position: absolute;
+      background-color: $sea-blue-lighter;
+    }
+
+    .select-area {
+      text-align: center;
+    }
+
+    .info {
+      z-index: 100;
+      height: $attachment-height;
+      width: 100%;
+      background-color: $form-control-bg-color;
+
+      $preview-margin: 5px;
+      $preview-width: $attachment-height - $preview-margin * 2;
+      .preview-area {
+        @include square($preview-width);
+        margin: $preview-margin;
+        position: relative;
+        .preview {
+          position: absolute;
+          left: 0;
+          top: 0;
+          background: white;
+          img {
+            border-radius: 2px;
+            @include square($preview-width);
+          }
+        }
+      }
+
+      .status {
+        position: relative;
+        margin-top: 11px;
+        .file-name {
+          max-width: 280px;
+          @include text-overflow;
+          display: inline-block;
+          vertical-align: middle;
+
+          &.error {
+            max-width: 96px;
+          }
+        }
+      }
+
+      .actions {
+        position: relative;
+        margin-top: 11px;
+        padding-right: 10px;
+        label {
+          display: inline;
+        }
+
+        .delete-link {
+          color: $watermelon-light;
+        }
+        .rechoose-link {
+          color: $main-link-color;
+        }
+      }
+
+      .web-actions {
+        display: none;
+      }
+
+      @include phone-device {
+        .status {
+          position: absolute;
+          left: 45px;
+          font-size: 0.9em;
+          margin-top: 12px;
+          &.error {
+            margin-top: 0;
+          }
+          .file-name {
+            max-width: 200px;
+          }
+          .error {
+            display: block;
+          }
+        }
+
+        .actions {
+          margin-top: 0;
+          padding-right: 0;
+          a[data-role='cancel'] {
+            padding-top: 9px;
+            padding-bottom: 9px;
+            padding-right: 10px;
+            display: inline-block;
+            color: $watermelon;
+          }
+        }
+      }
+
+    }
+
+    input[type=file] {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      margin: 0;
+      @include opacity(0);
+      z-index: -4;
+      &.origin-file-input {
+        position: static;
+        width: 100%;
+        @include opacity(1);
+        z-index: 0;
+      }
+    }
+
+    .error {
+      color: $error-color;
+      vertical-align: middle;
+    }
+
+    &:hover {
+      .info .web-actions {
+        display: block;
+      }
+    }
+  }
+  .attachment-select-trigger {
+    border: 1px dashed $slate-grey-light;
+    text-align: center;
+    width: 100%;
+    background-color: $form-control-bg-color;
+
+    &:hover, &.drag-over {
+      background-color: $sea-blue-lightest;
+    }
+
+    @include mobile-device {
+      &:hover {
+        background-color: $form-control-bg-color;
+      }
+      &:active {
+        background-color: $sea-blue-lightest;
+      }
+    }
+
+    label {
+      margin: 0;
+      display: table;
+      width: 100%;
+      .plus {
+        font-size: 24px;
+        display: table-cell;
+        width: 36px;
+        vertical-align: top;
+      }
+      .select-text {
+        text-align: left;
+        padding: 11px 10px 10px 0;
+        line-height: 1.4;
+        display: table-cell;
+
+        @include mobile-device {
+          text-align: left;
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+    .select-trigger-link {
+      display: block;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    @include mobile-device {
+      label > * {
+        pointer-events: none;
+      }
+    }
+  }
+
+  .attachment-error-message {
+    color: $error-color;
+    margin-top: 10px;
+  }
+}
+
+
+@mixin field-attachment-field {
+  .field-attachment-field {
+    @include attachment-field;
+  }
+}

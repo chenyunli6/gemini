@@ -1,0 +1,164 @@
+@mixin submit-field {
+  position: relative;
+  border-top: 1px solid $graphite-black;
+  margin-top: 34px;
+  padding-top: 33px;
+  padding-left: $form-padding-horizontal;
+  padding-right: $form-padding-horizontal;
+}
+
+@mixin submit-field-button {
+  display: inline-block;
+  line-height: 2.3;
+  font-size: 1em;
+  &:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  &.with-shadow {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+    &:hover {
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.21);
+    }
+    &:active {
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+@mixin preview-submit-field {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+  &.has-pagination-action {
+    @include submit-field;
+  }
+}
+
+@mixin field-submit-field {
+  .submit-field {
+    @include submit-field;
+    .gd-btn {
+      @include opacity(0.9);
+      &:hover {
+        @include opacity(1);
+      }
+      &.submit {
+        @include submit-field-button;
+        margin-left: 0;
+        padding: 0 55px;
+      }
+      @include phone-device {
+        width: 100%;
+        float: left;
+        @include opacity(1);
+      }
+    }
+    .report-form-link {
+      position: absolute;
+      right: $form-padding-horizontal;
+      bottom: -20px;
+      color: $desc-color;
+      &:hover {
+        color: darken($desc-color, 10%);
+      }
+    }
+    .pagination-action {
+      @include submit-field-button;
+      margin-right: 5px;
+      & + .pagination-action {
+        margin-left: 0;
+      }
+      @include phone-device {
+        &.previous-page:not(.hide) {
+          margin-right: 2%;
+          width: 49%;
+          & + .next-page {
+            width: 49%;
+            margin: 0;
+          }
+        }
+        &.next-page.hide + .submit {
+          width: 49%;
+          margin: 0;
+        }
+        &.previous-page.hide + .next-page.hide + .submit {
+          width: 100%;
+        }
+      }
+    }
+    &.has-form-pagination .page-number {
+      margin: 0 20px 0 10px;
+      @include phone-device {
+        clear: both;
+        display: inline-block;
+        margin: 10px 0 0;
+      }
+    }
+  }
+}
+
+@mixin captcha-common {
+  .captcha-container {
+    img {
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    .captcha-box {
+      display: inline-block;
+      .error {
+        border-color: $form-control-error-color;
+      }
+      & + .error-message {
+        color: $form-control-error-color;
+        margin-top: 4px;
+      }
+      .captcha-img-container {
+        background: white;
+        width: 70px;
+        padding: 0;
+        line-height: 30px;
+        img {
+          width: 80%;
+          height: 80%;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin signup-captcha-field {
+  @include captcha-common;
+  .captcha-container {
+    margin-bottom: 0;
+    .captcha-box {
+      display: block;
+      .captcha-input {
+        width: 65%;
+        border-radius: 2px;
+      }
+      & + .error-message {
+        margin-top: -10px;
+      }
+      .captcha-img-container {
+        float: right;
+        border: 0;
+        border-radius: 2px;
+        height: 30px;
+        margin-top: 3px;
+      }
+      @include phone-device {
+        padding-right: 0;
+        .captcha-img-container {
+          position: inherit;
+          width: 30%;
+          height: 35px;
+        }
+        input {
+          width: 65%;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,294 @@
+a, button, input, label {
+  &, &:focus, &:visited {
+    outline: none !important;
+  }
+}
+
+a.gd-link-with-dash-inverse {
+  color: $inverse-link-color;
+  border-bottom: 1px dashed $inverse-link-color;
+  &:hover {
+    text-decoration: none;
+    color: $inverse-link-hover-color;
+    border-bottom: 1px dashed $inverse-link-hover-color;
+  }
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+a.gd-link-with-underline-inverse {
+  color: $inverse-link-color;
+  text-decoration: underline;
+  &:hover {
+    color: $inverse-link-hover-color;
+  }
+}
+
+a.gd-link-inverse {
+  color: black;
+  &:hover {
+    color: $inverse-link-hover-color;
+  }
+}
+
+a.gd-danger-link {
+  color: $watermelon-light;
+  text-decoration: underline;
+  &:hover {
+    color: $watermelon;
+  }
+}
+
+a.gd-link-muted {
+  color: $text-muted;
+}
+
+a.external-link {
+  @extend .gd-icon;
+  @extend .gd-icon-external-link;
+  position: relative;
+  padding-right: 1.2em;
+  &:before {
+    position: absolute;
+    right: 0;
+    top: 0.2em;
+    color: $slate-grey;
+    margin-left: 1px;
+  }
+  &:hover {
+    &:before {
+      text-decoration: none;
+    }
+  }
+}
+
+.gd-link-group {
+  @include clearfix;
+  a {
+    float: left;
+  }
+  a + a {
+    border-left: 1px solid #D9D9D9;
+    padding-left: 5px;
+    margin-left: 5px;
+  }
+}
+
+.gd-hide {
+  display: none;
+}
+
+p {
+  text-indent: 0;
+  margin: 0 0 10px;
+  & + h1, & + h2, & + h3, & + h4, & + h5, & + h6 {
+    margin-top: 25px;
+  }
+}
+
+ol {
+  padding-left: 20px;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  &.gd-list-style {
+    list-style: disc;
+    padding-left: 20px;
+    li {
+      line-height: 150%;
+    }
+  }
+}
+
+ol, ul {
+  &.gd-list-style {
+    li + li {
+      margin-top: 10px;
+    }
+  }
+}
+
+.table {
+  > thead > tr > th {
+    border-bottom: 0;
+  }
+  tr {
+    td.no-record {
+      text-align: center;
+    }
+  }
+}
+
+.gd-red-badge {
+  @include gd-badge($rose);
+}
+
+.highlight-warning {
+  color: $watermelon;
+}
+
+.sortable, .sort-up, .sort-down {
+  cursor: pointer;
+  .sort-text {
+    position: relative;
+  }
+}
+
+@include sortable;
+
+.gd-row {
+  .gd-col-2 {
+    width: $col-2-width;
+    float: left;
+    &:nth-child(odd) {
+      margin-right: $col-margin-unit;
+    }
+    &:nth-child(even) {
+      margin-left: $col-margin-unit;
+    }
+  }
+
+  .gd-col-4 {
+    width: $col-4-width;;
+    float: left;
+
+    margin-left: $col-margin-unit;
+    margin-right: $col-margin-unit;
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.loading {
+  z-index: $zindex-loading;
+  position: fixed;
+  top: 50%;
+  left: 46%;
+  margin-left: -25px;
+  margin-top: -25px;
+  text-align: center;
+  @include opacity(0.5);
+  img {
+    margin-bottom: 10px;
+  }
+}
+
+dl.dl-inline {
+  dt, dd {
+    display: inline-block;
+  }
+  dt {
+    text-align: right;
+    min-width: 76px;
+    margin-right: 5px;
+  }
+  dd {
+    text-align: left;
+  }
+}
+
+.highlight {
+  color: $orange;
+}
+
+.success {
+  color: $success-color;
+}
+
+.failed, .error, .error-message, .help-block.inline-error {
+  color: $error-color;
+}
+
+.error-border {
+  border: 1px solid $error-color !important;
+}
+
+.gd-icon-wechat {
+  color: $weixin-color;
+}
+
+dl.details {
+  padding: 0 12px;
+  margin: 0;
+
+  dt {
+    font-weight: normal;
+    font-size: 1.167em;
+    padding-top: 8px;
+    padding-bottom: 1px;
+  }
+
+  dd {
+    $dd-padding-bottom: 8px;
+    color: $dark-grey-light;
+    padding-bottom: $dd-padding-bottom;
+    font-size: 1em;
+    border-bottom: 1px solid $dark-grey-lightest;
+    min-height: $line-height-computed + $dd-padding-bottom + 1px;
+    word-wrap: break-word;
+    ul {
+      list-style-type: square;
+      margin: 0 0 0 20px;
+    }
+  }
+
+}
+
+.disabled {
+  cursor: not-allowed !important;
+  color: $text-muted !important;
+}
+
+a.powered-by {
+  text-decoration: none;
+}
+
+.gd-form-control-line-height {
+  line-height: 30px;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.paid-status-with-icon {
+  i {
+    margin-right: 4px;
+    &.gd-icon-alipay {
+      margin-right: 2px;
+      color: $alipay-blue;
+    }
+  }
+}
+
+.slim-text {
+  font-weight: 200;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  margin-top: $margin-top-heading-big;
+  margin-bottom: ($margin-top-heading-big / 2);
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: $margin-top-heading-small;
+  margin-bottom: $margin-top-heading-small;
+}

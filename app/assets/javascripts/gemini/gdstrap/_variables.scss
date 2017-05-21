@@ -1,0 +1,262 @@
+// Logo Color
+$logo-color: $orange;
+$main-theme-color: $orange;
+$main-font-color: $dark-grey;
+$disabled-color: $dark-grey-lighter;
+$error-color: $watermelon;
+$warning-color: $bronze;
+$desc-color: $dark-grey-lighter;
+$main-link-color: $sea-blue;
+$main-link-hover-color: darken($main-link-color, 10%);
+$inverse-link-color: $dark-grey;
+$inverse-link-hover-color: $sea-blue;
+$body-bg-color: $mouse-grey;
+$main-dark-bg-color: $grayish-blue;
+
+$box-shadow-color: $slate-grey-light;
+$border-color: $slate-grey-light;
+
+$header-font-size: 16px;
+$header-link-color: $slate-grey;
+$header-link-hover-color: #FFF;
+$header-height: 48px;
+$site-header-height: 52px;
+
+$form-colors: $form-color-1 $form-color-2 $form-color-3 $form-color-4 $form-color-5;
+
+$font-family-number: Arial, sans-serif;
+$font-family-thin: "Pingfang SC", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+
+//vips
+$pro2-color: $orange;
+$ent2-color: $sea-blue;
+$cor2-color: $sea-blue;
+
+$plan-colors: ((pro2 $pro2-color), (ent2 $ent2-color), (cor2 $cor2-color));
+
+//buttons
+$btn-primary-bg-color: #FFF;
+$btn-primary-border-color: $sea-blue;
+$btn-primary-font-color: $btn-primary-border-color;
+$btn-primary-hover-bg-color: $btn-primary-border-color;
+$btn-primary-hover-border-color: $btn-primary-border-color;
+$btn-primary-hover-font-color: #FFF;
+
+$btn-info-bg-color: #FFF;
+$btn-info-border-color: $slate-grey;
+$btn-info-font-color: $dark-grey;
+$btn-info-hover-bg-color: $mouse-grey;
+$btn-info-hover-border-color: $slate-grey;
+$btn-info-hover-font-color: $dark-grey-light;
+
+$btn-danger-bg-color: #FFF;
+$btn-danger-border-color: $watermelon-light;
+$btn-danger-font-color: $btn-danger-border-color;
+$btn-danger-hover-bg-color: $btn-danger-border-color;
+$btn-danger-hover-border-color: $btn-danger-border-color;
+$btn-danger-hover-font-color: #FFF;
+
+$btn-disabled-bg-color: $silver;
+$btn-disabled-border-color: $slate-grey;
+$btn-disabled-font-color: $slate-grey;
+
+$btn-height-normal: 28px;
+$btn-height-thin: 22px;
+$btn-height-thick: 36px;
+
+$container-min-width: 960px;
+$container-max-width: 1200px;
+
+$popup-list-hover-bg: $mouse-grey;
+$popup-list-seprator-color: $graphite-black;
+
+// 栅格系统相关变量
+$col-margin-unit: 1%;
+$col-4-width: (100% - 6 * $col-margin-unit) / 4;
+$col-2-width: (100% - 2 * $col-margin-unit) / 2;
+
+// override bootstrap variables
+$brand-primary: $sea-blue;
+$brand-success: $grass;
+$brand-info: $dark-grey-light;
+$brand-warning: $orange-light;
+$brand-danger: $rose;
+
+$text-color: $main-font-color;
+$link-color: $main-link-color;
+$link-hover-color: $main-link-hover-color;
+$link-hover-decoration: none;
+
+$font-family-base: $font-family-thin;
+
+$font-size-base: 12px;
+$font-size-h1: 28px;
+$font-size-h2: 24px;
+$font-size-h3: 20px;
+$font-size-h4: 16px;
+$font-size-h5: 14px;
+$font-size-h6: 12px;
+
+$margin-top-heading-big: 20px;
+$margin-top-heading-small: 10px;
+
+$headings-font-weight: normal;
+$border-radius-base: 0;
+
+$table-bg: #FFF;
+$table-header-bg: $mouse-grey;
+$table-bg-hover: $sea-blue-lightest;
+$table-border-color: $graphite-black;
+
+$dropdown-link-color: $text-color;
+$dropdown-link-hover-color: $main-link-color;
+$dropdown-link-hover-bg: #FFF;
+$dropdown-link-active-color: $text-color;
+$dropdown-link-active-bg: $popup-list-hover-bg;
+
+$nav-link-padding: 5px 25px;
+$nav-pills-border-radius: 0;
+$nav-pills-active-link-hover-bg: $sea-blue;
+
+$grid-gutter-width: 14px;
+
+$pagination-active-bg: $mouse-grey;
+$pagination-active-color: $dark-grey-lighter;
+$pagination-active-border: $graphite-black;
+$pagination-hover-bg: $pagination-active-bg;
+$pagination-hover-border: $pagination-active-border;
+
+$state-success-text: $brand-success;
+$state-success-bg: $grass-lightest;
+$state-success-border: $state-success-text;
+$state-info-text: $brand-info;
+$state-info-bg: $silver;
+$state-info-border: $state-info-text;
+$state-warning-text: $brand-warning;
+$state-warning-bg: $gold-lightest;
+$state-warning-border: $state-warning-text;
+$state-danger-text: $brand-danger;
+$state-danger-bg: $rose-lightest;
+$state-danger-border: $state-danger-text;
+
+$label-default-bg: $silver;
+$label-primary-bg: $label-default-bg;
+$label-success-bg: $state-success-bg;
+$label-info-bg: $state-info-bg;
+$label-warning-bg: $state-warning-bg;
+$label-danger-bg: $state-danger-bg;
+$label-color: $dark-grey;
+
+$modal-backdrop-opacity: .3;
+$modal-lg: 900px;
+$modal-md: 600px;
+$modal-sm: 400px;
+
+$navbar-default-link-color: $text-color;
+$navbar-default-link-hover-color: $main-link-color;
+$navbar-default-link-disabled-color: $dark-grey-secondary;
+
+$nav-tabs-border-color: transparent;
+$nav-tabs-active-link-hover-color: $main-link-color;
+$nav-tabs-active-link-hover-bg: transparent;
+$nav-tabs-active-link-active-color: $main-font-color;
+$nav-tabs-active-link-active-bg: #FFF;
+
+$nav-link-hover-bg: transparent;
+
+$zindex-modal-background: 1040;
+$zindex-modal: 1050;
+
+$alert-padding: 10px;
+$alert-border-radius: 3px;
+$alert-link-font-weight: normal;
+$alert-info-bg: $sea-blue-lightest;
+$alert-info-text: $sea-blue-light;
+$alert-info-border: $alert-info-text;
+$alert-warning-bg: $orange-lightest;
+$alert-warning-border: $orange;
+$alert-warning-text: $text-color;
+
+$progress-bar-bg: $sea-blue-light;
+
+$close-font-weight: normal;
+$close-color: $text-color;
+$close-text-shadow: none;
+
+$text-muted: $dark-grey-lighter;
+
+$carousel-indicator-active-bg: $sea-blue;
+$carousel-indicator-border-color: $slate-grey-light;
+
+// end
+
+$zindex-user-feedback: 1000;
+$zindex-goods-warning: 10;
+$zindex-flash-notification: 1060;
+$zindex-loading: 2000;
+$zindex-gd-tooltip-backdrop: 9999998; // just less than .tooltipster-base
+$zindex-search-input: 9999999;
+$zindex-search-backdrop: 9999998;
+$zindex-form-design-footer: $zindex-gd-tooltip-backdrop + 1;
+
+$form-width: 700px;
+$form-title-font-size: 1.667em;
+$form-field-title-font-size: 1.167em;
+$form-field-description-color: $dark-grey-light;
+$form-field-edit-bg: rgba($sea-blue, 0.05);
+$form-field-edit-border: $sea-blue-light;
+$field-space: 30px;
+$form-padding-horizontal: 30px;
+$field-padding-horizontal: 30px;
+$field-padding-horizontal-phone: 20px;
+$field-padding-horizontal-phone-for-preview: 10px;
+$field-padding-vertical: 5px;
+$form-submit-bg-start-color: $sea-blue-light;
+$form-submit-bg-end-color: $sea-blue-light;
+$form-submit-border-color: $sea-blue;
+$form-submit-font-color: #FFF;
+$form-control-width: 49%;
+$form-control-max-width: 260px;
+$form-control-border-radius: 2px;
+$form-control-border-color: $slate-grey-light;
+$form-control-border-focus-color: $sea-blue-light;
+$form-control-placeholder-color: $slate-grey;
+$form-control-bg-color: rgba(#FFF, 0.65);
+$form-control-choice-size: 16px;
+$form-control-error-color: $rose;
+
+$form-control-height-normal: 30px;
+$form-control-height-thin: 24px;
+$form-control-line-height-thin: 20px;
+
+$form-control-height-mobile: 40px;
+$form-control-choice-size-mobile: 20px;
+
+$field-select: $sea-blue;
+
+$entries-grid-border: $graphite-black;
+
+$mobile-verified: $grass;
+
+$social-sharing-grid-size: 40;
+
+$datepicker-today-bg: $sea-blue-lighter;
+$datepicker-today-hover-bg: $sea-blue-light;
+$datepicker-active-bg: $sea-blue-light;
+$datepicker-active-hover-bg: $sea-blue;
+$weixin-color: $weixin-green;
+
+$success-color: $grass;
+
+$tooltip-list-icon-font-size: 16px;
+$tooltip-list-icon-color: $dark-grey-light;
+
+
+//template center
+$main-border-color: $graphite-black;
+
+//publish form modal
+$field-space-normal: $field-space+ 5px;
+$phone-device-modal-font-size: 16px;
+
+$demo-padding: 2%;

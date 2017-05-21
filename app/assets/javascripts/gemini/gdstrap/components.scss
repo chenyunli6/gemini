@@ -1,0 +1,634 @@
+// Place all the styles related to the components controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$header-search-box-width: 320px;
+
+#components_badges {
+  .gd-red-badge + .gd-red-badge {
+    margin-left: 8px;
+  }
+}
+
+#components_avatars {
+  .demo {
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+  .contact-list {
+    padding: {
+      top: 0;
+      bottom: 0;
+    };
+    table {
+      margin-bottom: 0;
+    }
+    td {
+      border-top: 0;
+      vertical-align: middle;
+    }
+    .contact-select {
+      width: 30px;
+    }
+    .contact-avatar {
+      width: 50px;
+    }
+  }
+  .template-creator {
+    padding: 0;
+    margin-top: 25px;
+    .avatar-lg {
+      margin-top: -25px;
+      margin-left: 10px;
+      border: 1px solid $graphite-black;
+    }
+    li {
+      padding: 0 6px 0 10px;
+      line-height: 2;
+    }
+  }
+}
+
+#components_buttons {
+  .btn-icons-example {
+    font-size: 14px;
+    .gd-link-inverse + .gd-link-inverse {
+      margin-left: 10px;
+    }
+  }
+
+  .gd-icon-plus-circle {
+    color: $grass;
+    &:hover {
+      background-color: $grass;
+      color: #FFFFFF;
+    }
+  }
+
+  .gd-icon-minus-circle {
+    color: $watermelon;
+    &:hover {
+      background-color: $watermelon;
+      color: #FFFFFF;
+    }
+  }
+
+  .dashed-box {
+    background-color: #FFF;
+    @include dashed-box($sea-blue, $sea-blue);
+    color: $link-color;
+  }
+
+  .add-rule {
+    line-height: 60px;
+    font-size: 14px;
+  }
+
+  .image-upload-area {
+    background-color: #FFF;
+    @include dashed-box($slate-grey-light, $dark-grey-lighter, white);
+    color: $main-font-color;
+    i {
+      display: block;
+      font-size: 30px;
+      margin-top: 13px;
+      margin-bottom: 5px;
+      line-height: 30px;
+    }
+    &:hover {
+      border-style: solid;
+    }
+  }
+
+}
+
+#components_charts {
+  .chart-buttons {
+    position: relative;
+  }
+  .chart-type-toggle {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+#components_tooltips {
+  #tooltip_help_document_demo {
+    height: 130px;
+    span {
+      margin-left: 60px;
+    }
+  }
+
+  #tooltip_basic_demo {
+    height: 100px;
+  }
+
+  #tooltip_image_demo {
+    height: 240px;
+  }
+
+  #tooltip_basic_demo, #tooltip_image_demo {
+    span {
+      vertical-align: middle;
+    }
+    #published_form_link {
+      width: 180px;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+    a {
+      margin-left: 6px;
+      color: $navbar-default-link-color;
+      font-size: 17px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 22px;
+      line-height: 22px;
+      &.copy-form-link {
+        margin-left: 10px;
+      }
+      &.form-qrcode-link {
+        font-size: 21px;
+        padding-top: 1px;
+      }
+      &.open-form-link {
+        font-size: 21px;
+      }
+    }
+  }
+
+  #tooltip_functional_demo {
+    height: 300px;
+    a {
+      font-size: 18px;
+      color: $sea-blue-light;
+      display: inline-block;
+    }
+    .form-info-icon {
+      margin-left: 70px;
+    }
+    .form-tag-icon {
+      margin-left: 200px;
+    }
+  }
+}
+
+@include edit-form-tag-tooltip;
+@include tooltip-header-with-error-message;
+
+#components_alerts {
+  #alert_basic_demo {
+    .alert {
+      @include box-shadow-normal;
+    }
+  }
+}
+
+#components_labels {
+  #label_solid_demo {
+    height: 335px;
+    .setting {
+      background-color: white;
+      padding: 5px 15px;
+      max-width: 580px;
+    }
+    .setting-row {
+      display: block;
+      margin: 10px 0;
+    }
+
+    .edit-form-tag {
+      cursor: pointer;
+      margin-left: 4px;
+    }
+  }
+
+  .paid-feature-modal .paid-feature-indicator {
+    background: white;
+    border: 1px solid $main-theme-color;
+    color: $main-theme-color;
+    border-radius: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    line-height: 1.3em;
+    font-size: .8em;
+  }
+}
+
+#components_tables {
+  .search-result {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .table-content {
+    border: 1px solid $graphite-black;
+  }
+  .tablesaw {
+    border: none;
+    margin-bottom: -1px;
+
+    td {
+      border-width: 1px 0 0;
+      padding: 8px;
+      border-color: $dark-grey-lightest;
+      &:first-child {
+        border-top: 0;
+      }
+      b {
+        font-weight: normal;
+      }
+    }
+
+    tr:nth-of-type(odd) {
+      background-color: $silver-light;
+      &:hover {
+        background-color: $table-bg-hover;
+      }
+    }
+    tr + tr {
+      border-top: 2px solid $table-border-color;
+    }
+  }
+  .contact-list {
+    table {
+      margin-bottom: 0;
+    }
+    tr:nth-child(even) {
+      td {
+        border-top: 0;
+        padding-top: 0;
+      }
+    }
+    td[rowspan] {
+      vertical-align: middle;
+    }
+  }
+  .phone-device {
+    .col-sm-6 {
+      width: 100%;
+      float: none;
+    }
+  }
+}
+
+#components_tabs {
+  .tab-pane {
+    min-height: 100px;
+  }
+
+  .tab-content {
+    padding: 20px;
+  }
+
+  .nav-tabs {
+    background: $silver;
+    > li {
+      > a {
+        border: 0;
+        color: $main-font-color;
+        font-size: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        &:hover {
+          color: $nav-tabs-active-link-hover-color;
+          background: $nav-tabs-active-link-hover-bg;
+        }
+      }
+      &.active > a {
+        &, &:hover, &:focus {
+          border: 0;
+          color: $nav-tabs-active-link-active-color;
+          background: $nav-tabs-active-link-active-bg;
+        }
+      }
+    }
+  }
+}
+
+#components_progress_bars {
+  @include gd-progress-bar(600px);
+}
+
+#components_navbar {
+  .tabs-left {
+    background: #FFF;
+    border: 1px solid $graphite-black;
+    border-radius: $border-radius-small;
+    padding: 0;
+    margin-right: 23px;
+    font-size: 14px;
+
+    .nav-stacked {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      li {
+        margin: 0;
+        > a {
+          color: $navbar-default-link-color;
+          padding: 10px 25px;
+        }
+      }
+      > li {
+        &.active {
+          > a {
+            background-color: $mouse-grey;
+            color: $navbar-default-link-color;
+          }
+        }
+        &:hover {
+          > a {
+            color: $main-link-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+#components_modals, #components_labels {
+  .demo {
+    .modal {
+      display: block;
+      position: initial;
+      .modal-dialog {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+#components_search {
+  .demo {
+    .search {
+      position: relative;
+      display: inline-block;
+      input.search-content {
+        border-radius: 13px;
+        height: 22px;
+        line-height: 22px;
+        padding-left: 20px;
+        margin-bottom: 0;
+      }
+      i {
+        position: absolute;
+        left: 8px;
+        top: 5px;
+        line-height: 12px;
+      }
+    }
+  }
+}
+
+#components_content_sections {
+  #content_section_with_title_demo {
+    .section-body {
+      min-height: 100px;
+    }
+  }
+
+  #content_section_with_table_demo {
+    table {
+      th, td {
+        &:first-child {
+          width: 35px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+header.demo {
+  background: $main-dark-bg-color;
+  font-size: $header-font-size;
+  padding: {
+    top: 0;
+    bottom: 0;
+  }
+  .header-banner {
+    width: auto;
+    height: $header-height;
+    max-width: 100%;
+    position: relative;
+    .header-nav {
+      height: $header-height;
+      line-height: $header-height;
+      vertical-align: middle;
+    }
+    .header-logo {
+      float: left;
+      margin: 0 35px 0 0;
+      .brand {
+        display: inline-block;
+        color: $logo-color;
+        height: $header-height;
+        line-height: $header-height;
+        vertical-align: top;
+      }
+      i {
+        font-size: 29px;
+        float: left;
+      }
+      .brand-name {
+        margin-left: 7px;
+        float: left;
+      }
+    }
+    ul.header-nav {
+      list-style: none;
+      display: inline-block;
+      li {
+        position: relative;
+        a {
+          color: $header-link-color;
+          float: left;
+          &.active, &:hover {
+            color: $header-link-hover-color;
+          }
+        }
+        .gd-red-badge {
+          position: absolute;
+          top: 7px;
+          right: -7px;
+        }
+      }
+      &.menu-nav {
+        float: left;
+        li {
+          float: left;
+          margin-right: 36px;
+        }
+      }
+      &.user-nav {
+        float: right;
+        li {
+          float: left;
+          margin-left: 15px;
+          line-height: normal;
+          a {
+            height: $header-height;
+            line-height: $header-height;
+          }
+
+          .top-settings {
+            line-height: $header-height - 2px;
+            .user-name {
+              margin-left: 2px;
+              vertical-align: middle;
+              font-size: 14px;
+            }
+            .popup-trigger {
+              @include triangle-down(9px, 4px, #FFF);
+              vertical-align: middle;
+            }
+          }
+
+          .notification-center, .help-link {
+            font-size: 19px;
+          }
+        }
+      }
+    }
+
+    @include search-box(100%, 25px);
+
+    .global-search-container {
+      width: $header-search-box-width;
+      position: absolute;
+      top: 11px;
+      .search-trigger {
+        width: 1px;
+        height: 2px;
+        position: absolute;
+        bottom: 3px;
+        left: 50%;
+        background: transparent;
+      }
+      .search-content {
+        position: relative;
+      }
+      .search-backdrop {
+        display: none;
+        @include full-fill-position-fixed;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: $zindex-search-backdrop;
+      }
+      &.during-searching {
+        .search-content, .search-icon {
+          z-index:$zindex-search-input;
+        }
+        .search-backdrop {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.form-nav {
+  background: #FFF;
+  font-size: 14px;
+  padding: 5px 20px 0;
+  .form-name {
+    display: inline-block;
+  }
+  .subnav {
+    a {
+      color: $navbar-default-link-color;
+      margin-right: 20px;
+      padding: 2px 5px 5px;
+      border-bottom: 2px solid transparent;
+      float: left;
+
+      &.active {
+        color: $navbar-default-link-hover-color;
+        border-color: $navbar-default-link-hover-color;
+      }
+      &:hover {
+        color: $navbar-default-link-hover-color;
+      }
+
+    }
+  }
+  .settings {
+    color: $dark-grey-lighter;
+    cursor: pointer;
+    &:hover, &.active {
+      color: $sea-blue-light;
+    }
+  }
+}
+
+.tooltipster-base.global-search-popover {
+  width: $header-search-box-width;
+  overflow-y: hidden;
+  .tooltipster-content {
+    padding: 5px 0;
+  }
+  .tooltipster-arrow {
+    display: none;
+  }
+  .global-search-content {
+    .keyword {
+      color: $orange;
+      font-weight: normal;
+    }
+    .noti-message {
+      padding: 10px 15px;
+      i {
+        font-size: 17px;
+        margin-right: 5px;
+      }
+      .keyword {
+        padding: 0 2px;
+      }
+    }
+    .search-result-heading {
+      background-color: $popup-list-hover-bg;
+      padding: 5px 15px;
+      margin: 5px 0;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    .result-list {
+      width: 100%;
+      li.result-item {
+        .result-item-link {
+          color: $dark-grey;
+          display: block;
+          height: 18px;
+          line-height: 18px;
+          i {
+            font-size: 14px;
+          }
+        }
+        &:hover {
+          background-color: white;
+        }
+        &.active {
+          background-color: $popup-list-hover-bg;
+          .result-item-link {
+            color: darken($dark-grey, 20%);
+          }
+        }
+        &:nth-child(n+5) {
+          display: none;
+        }
+      }
+
+      .show-more {
+        text-align: center;
+        cursor: pointer;
+        padding: 0;
+        line-height: 15px;
+        &:before {
+          content: '\2022\2022\2022';
+        }
+      }
+    }
+  }
+}

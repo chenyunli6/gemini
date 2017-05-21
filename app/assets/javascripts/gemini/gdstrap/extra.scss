@@ -1,0 +1,92 @@
+
+body {
+  &, input, textarea, select, button {
+    @include font-smoothing;
+  }
+}
+
+.nav {
+  a {
+    color: $main-font-color;
+    &:hover, &:active {
+      color: $link-color;
+    }
+  }
+  li.active > a {
+    color: $link-color;
+  }
+}
+
+.navbar {
+  .avatar {
+    padding: $navbar-padding-vertical $navbar-padding-horizontal;
+    font-size: $font-size-large;
+    line-height: $line-height-computed;
+    height: $navbar-height;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+footer {
+  padding: 40px 0 20px;
+  color: $dark-grey-lighter;
+}
+
+.table:not(.gd-table) > tbody > tr > td {
+  vertical-align: middle;
+  padding: {
+    top: 15px;
+    bottom: 15px;
+  }
+}
+
+.help-document-tooltip {
+  color: $slate-grey;
+  font-size: 13px;
+  cursor: help;
+}
+
+.help-document-popup {
+  text-align: left;
+  white-space: pre-wrap;
+  .specific-help-link {
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed $border-color;
+  }
+}
+
+.qrcode-container {
+  img {
+    width: 128px;
+  }
+
+  .download_links {
+    margin-top: 5px;
+    a {
+      padding: 0 8px;
+      &:not(:last-child) {
+        border-right: 1px solid $text-color;
+      }
+    }
+  }
+}
+
+.label {
+  font-size: $font-size-base;
+  font-weight: normal;
+  padding: 5px 10px;
+  display: inline-block;
+  white-space: normal;
+  text-align: left;
+  line-height: $line-height-computed;
+  vertical-align: middle;
+  &.gd-label-thin {
+    padding: 2px 6px;
+  }
+}
+

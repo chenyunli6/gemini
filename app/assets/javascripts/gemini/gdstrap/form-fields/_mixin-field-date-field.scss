@@ -1,0 +1,18 @@
+@mixin field-date-field {
+  .field-date-field {
+    input[type=date] {
+      @include appearance(none);
+    }
+    .gd-input-container {
+      width: 100%;
+      @include form-control-max-width;
+    }
+
+    &.custom-grids {
+      .gd-input-container {
+        width: 100%;
+        max-width: none;
+      }
+    }
+  }
+}

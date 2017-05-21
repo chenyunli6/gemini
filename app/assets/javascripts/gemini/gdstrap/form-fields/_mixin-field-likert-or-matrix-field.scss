@@ -1,0 +1,84 @@
+@mixin tablesaw-small-screen {
+  @media (max-width: 39.9375em) {
+    @content;
+  }
+  @include phone-device {
+    @content;
+  }
+}
+
+@mixin likert-matrix-table {
+  background-color: $form-control-bg-color;
+  thead {
+    font-size: 12px;
+    font-weight: normal;
+  }
+  th, td {
+    text-align: center;
+    &:first-child {
+      text-align: left;
+      min-width: 50px;
+      vertical-align: middle;
+    }
+  }
+  th {
+    word-wrap: break-word;
+    padding-top: 6px;
+    padding-bottom: 5px;
+  }
+
+  td {
+    vertical-align: middle;
+    font-size: 1em;
+    input {
+      margin: 0;
+    }
+    input[type=text] {
+      width: 100%;
+    }
+  }
+}
+
+@mixin field-likert-field {
+  .field-likert-field .likert > table {
+    @include likert-matrix-table;
+    @include tablesaw-small-screen {
+      border-width: 1px 0 0 0;
+      .tablesaw-cell-label {
+        font-weight: normal;
+        width: 80%;
+      }
+      .tablesaw-cell-content {
+        float: left;
+        margin-right: 5px;
+      }
+      tbody {
+        tr {
+          border-bottom: 8px solid transparent;
+          &:hover {
+            background-color: #FFF;
+          }
+          td {
+            border-bottom: 0;
+            text-align: left;
+            &:active {
+              background: $mouse-grey;
+              @include box-shadow(inset 0px 1px 1px rgba(#000, 0.1));
+            }
+            &:first-child {
+              background: $table-header-bg;
+              @include border-top-radius(2px);
+            }
+            &:last-child {
+              border-bottom: 1px solid $table-border-color;
+              @include border-bottom-radius(2px);
+            }
+          }
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

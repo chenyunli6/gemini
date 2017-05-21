@@ -1,0 +1,54 @@
+@mixin retina {
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    /* only for retina display */
+    @content;
+  }
+}
+
+@mixin screen-with-max-width($max-width) {
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin screen-with-min-width($min-width) {
+  @media screen and (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin screen-between-width($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin mobile-device {
+  .mobile-device  {
+    @content;
+  }
+}
+
+@mixin phone-device($include-preview: true) {
+  @if $include-preview {
+    .phone-device  {
+      @content;
+    }
+  } @else {
+    .phone-device:not(.preview-mode) & {
+      @content;
+    }
+  }
+}
+
+@mixin preview-phone-device {
+  .phone-device.preview-mode & {
+    @content;
+  }
+}

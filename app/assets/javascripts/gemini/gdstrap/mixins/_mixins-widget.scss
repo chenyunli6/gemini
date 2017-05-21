@@ -1,0 +1,450 @@
+@mixin gd-badge($color) {
+  $ratio: 10px / 12px;
+  $size: 15px / $ratio;
+  font-family: $font-family-number;
+  display: inline-block;
+  background: $color;
+  @include round($size);
+  line-height: $size;
+  color: #FFF;
+  text-align: center;
+  font-size: 12px;
+  @include scale($ratio);
+}
+
+@mixin prefix-selected {
+  @extend .gd-icon;
+  @extend .gd-icon-check;
+}
+
+@mixin cover {
+  position: relative;
+  .cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    @include opacity(.6);
+  }
+}
+
+@mixin loading {
+  .loading{
+    z-index: $zindex-loading;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    text-align: center;
+    @include opacity(0.5);
+    img {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@mixin triangle-base {
+  display: inline-block;
+  width: 0;
+  height: 0;
+}
+
+@mixin triangle-down($width, $height, $color: $text-color) {
+  @include triangle-base;
+  border: #{$width / 2} solid transparent;
+  border-top: #{$height} solid $color;
+  border-bottom-width: 0;
+}
+
+@mixin triangle-up($width, $height, $color: $text-color) {
+  @include triangle-base;
+  border: #{$width / 2} solid transparent;
+  border-bottom: #{$height} solid $color;
+  border-top-width: 0;
+}
+
+@mixin triangle-left($width, $height, $color: $text-color) {
+  @include triangle-base;
+  border: #{$height / 2} solid transparent;
+  border-right: #{$width} solid $color;
+  border-left-width: 0;
+}
+
+@mixin triangle-right($width, $height, $color: $text-color) {
+  @include triangle-base;
+  border: #{$height / 2} solid transparent;
+  border-left: #{$width} solid $color;
+  border-right-width: 0;
+}
+
+@mixin field-select {
+  .field-placeholder {
+    .triangle-down {
+      @include triangle-down(8px, 4px, $main-link-color);
+      vertical-align: middle;
+    }
+  }
+  .field-placeholder-selector.tooltipster-base {
+    max-width: 300px;
+    .tooltipster-content {
+      ul.field-placeholder-selector {
+        max-height: 260px;
+        overflow-y: auto;
+      }
+    }
+  }
+}
+
+@mixin search-box($width: 260px, $height: 22px, $bg-color: rgba(#000, 0.3), $icon-color: $slate-grey-light, $focus-border-color: $sea-blue-lighter, $non-focus-text-color: white) {
+  .search-box {
+    position: relative;
+    display: inline-block;
+    input[type=search] {
+      color: rgba($non-focus-text-color, 0.8);
+      border: none;
+      background: $bg-color;
+      width: $width;
+      height: $height;
+      padding-left: 28px;
+      padding-right: 12px;
+      border-radius: 22px;
+      font-size: 12px;
+      @include transition(background 0.2s ease-in);
+      & + i {
+        color: $icon-color;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -7px;
+        margin-top: -14px;
+        cursor: text;
+        @include transition(all 0.2s ease-in);
+        font-size: 14px;
+      }
+      &:focus, &.has-value {
+        & + i {
+          left: 16px;
+        }
+      }
+      &:focus, &.active {
+        background: #FFF;
+        color: $text-color;
+        @include opacity(1);
+      }
+    }
+  }
+}
+
+@mixin tooltip-header-with-error-message {
+  .tooltipster-content {
+    .header {
+      text-align: center;
+      position: relative;
+      padding: 2px 0 10px;
+      border-bottom: 1px solid $slate-grey-light;
+      min-width: 23px;
+      .header-content {
+        .back-to-settings {
+          display: none;
+        }
+      }
+      .error-message {
+        color: $error-color;
+      }
+    }
+  }
+}
+
+@mixin edit-form-tag-tooltip ($width: 241px){
+  .dashboard-form-tags.content {
+    width: $width;
+    .form-tags-container {
+      .bootstrap-tagsinput {
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 7px 15px;
+        .tag {
+          font-size: 12px;
+          background-color: $silver;
+          color: $dark-grey;
+          display: inline-block;
+          margin: 0;
+          padding: 0 5px;
+          height: $line-height-computed + 6px;
+          line-height: $line-height-computed + 6px;
+          font-weight: normal;
+        }
+        > input {
+          padding-right: 0;
+          padding-left: 0;
+          width: 70px;
+          border: none;
+          @include box-shadow(none);
+          height: $line-height-computed + 6px;
+          line-height: $line-height-computed + 6px;
+          margin: 0;
+        }
+      }
+      .error-message {
+        margin-left: 13px;
+        color: $error-color;
+        margin-bottom: 5px;
+      }
+      .add-tag-container {
+        border-top: 1px solid $slate-grey-light;
+        padding: 5px 0;
+        margin-bottom: -8px;
+        max-height: 140px;
+        overflow-y: auto;
+        .available-tag {
+          position: relative;
+          padding: 4px 15px 4px 36px;
+          cursor: pointer;
+          margin: 0;
+          .tag-icon {
+            font-size: $tooltip-list-icon-font-size;
+            color: $tooltip-list-icon-color;
+            position: absolute;
+            left: 15px;
+            top: 4px;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        &.empty {
+          border-top: none;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin text-with-ellipsis ($line-clamp: 3){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: $line-clamp;
+}
+
+@mixin sort-up-triangle($top, $right) {
+  content: '';
+  right: $right;
+  top: $top;
+  @include triangle-up(8px, 4px, $dark-grey-lighter);
+  position: absolute;
+}
+
+@mixin sort-down-triangle($top, $right) {
+  content: '';
+  right: $right;
+  top: $top;
+  @include triangle-down(8px, 4px, $dark-grey-lighter);
+  position: absolute;
+}
+
+@mixin sort-up($top: 1px, $right: 17px) {
+  .sort-up {
+    .sort-text:before {
+      @include sort-up-triangle($top, $right);
+    }
+  }
+}
+
+@mixin sort-down($top: 7px, $right: 17px) {
+  .sort-down {
+    .sort-text:after {
+      @include sort-down-triangle($top, $right);
+    }
+  }
+}
+
+@mixin sortable($up-top: 1px, $down-top: 7px, $right: 17px) {
+  .sortable {
+    .sort-text:before {
+      @include sort-up-triangle($up-top, $right);
+    }
+    .sort-text:after {
+      @include sort-down-triangle($down-top, $right);
+    }
+  }
+  @include sort-up($up-top + 1, $right);
+  @include sort-down($down-top - 1, $right);
+}
+
+@mixin steps() {
+  .steps {
+    color: $dark-grey-light;
+    font-size: 14px;
+    position: absolute;
+    top: 11px;
+    right: 25px;
+    font-size: 12px;
+    .step {
+      float: left;
+      margin-right: 20px;
+      span {
+        i {
+          color: $dark-grey-lighter;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &.active, &.done{
+        color: $grass;
+        span {
+          i {
+            color: $grass;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin rating-group {
+  .rating-group {
+    i {
+      margin-right: 2px;
+    }
+  }
+}
+
+@mixin qrcode-with-sweep-text($qrcodeWidth, $sweepTextBgColor, $sweepTextColor:#FFF) {
+  .qrcode {
+    @include square($qrcodeWidth);
+    margin: 0 auto;
+  }
+  .sweep-text {
+    display: inline-block;
+    background-color: $sweepTextBgColor;
+    margin: 10px auto;
+    color: $sweepTextColor;
+    padding: 4px 34px;
+    border: none;
+    border-radius: 16px;
+    font-size: 14px;
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+@mixin input-with-enter-icon($icon-top: 8px, $icon-right: 5px, $width: 100%) {
+  .input-with-enter-container {
+    position: relative;
+    display: inline-block;
+    width: $width;
+    input {
+      padding: 5px 20px 5px 10px;
+    }
+    .input-enter-icon {
+      position: absolute;
+      right: $icon-right;
+      top: $icon-top;
+      color: $slate-grey-light;
+    }
+  }
+}
+
+@mixin message-with-icon {
+  position: relative;
+  padding-left: 20px;
+  display: block;
+  i {
+    padding-left: 0;
+    font-size: 14px;
+    vertical-align: middle;
+    position: absolute;
+    left: 0;
+  }
+}
+
+@mixin dashed-box($default-border-color: $dark-grey-lighter, $hover-border-color: $sea-blue-lighter, $hover-bg-color: $sea-blue-lightest) {
+  border: 1px dashed $default-border-color;
+  text-align: center;
+  border-radius: 3px;
+  @include transition(border 0.15s linear);
+  @include transition(background-color 0.15s linear);
+  &:hover {
+    border-color: $hover-border-color;
+    background-color: $hover-bg-color;
+    cursor: pointer;
+  }
+
+}
+
+@mixin form-setting-close-rules {
+  .label{
+    margin-top: 0;
+  }
+  .close-rules {
+    .close-rule-group-item {
+      .config {
+        margin-bottom: 15px;
+        input, select {
+          margin-bottom: 0;
+          vertical-align: middle;
+        }
+      }
+    }
+    input[type=number] {
+      margin: 0 5px;
+    }
+  }
+  .config {
+    .time-separator {
+      margin: 0 4px;
+      line-height: 30px;
+      vertical-align: middle;
+    }
+    .date-wrapper {
+      .input_date {
+        width: 150px;
+        margin-right: 5px;
+      }
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+    &.time-periods {
+      ul {
+        li {
+          a {
+            line-height: 30px;
+            vertical-align: middle;
+          }
+          .add-time-period {
+            margin-left: 9px;
+          }
+          .del-time-period {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin header-item-list($margin-bottom: 20px) {
+  .header-item-list {
+    list-style: disc;
+    padding-left: 15px;
+    .header-item {
+      .header-title {
+        margin: 2px 0;
+      }
+      margin-bottom: $margin-bottom;
+    }
+  }
+}
+@include header-item-list

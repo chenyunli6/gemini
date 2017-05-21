@@ -1,0 +1,200 @@
+@mixin gd-btn($bg-color, $border-color, $font-color, $hover-bg-color, $hover-border-color, $hover-font-color) {
+  &, &:focus {
+    background: $bg-color;
+    border: 1px solid $border-color;
+    color: $font-color;
+  }
+  &:hover, &.hover, &:active {
+    background: $hover-bg-color;
+    border-color: $hover-border-color;
+    color: $hover-font-color;
+    i.gd-icon-wechat {
+      color: $hover-font-color;
+    }
+  }
+}
+
+.gd-btn {
+  font-size: $font-size-base;
+  @include centered-content(auto, auto, 0 $btn-height-normal);
+  line-height: $btn-height-normal;
+  border-radius: $form-control-border-radius;
+  cursor: pointer;
+  &:active {
+    @include box-shadow(inset 0 1px 2px rgba(0,0,0,0.3));
+  }
+  &:hover, &.hover, &:active, &:focus {
+    text-decoration: none;
+  }
+  &.disabled, &:disabled, &[disabled] {
+    &, &:hover, &.hover {
+      background: $btn-disabled-bg-color!important;
+      color: $btn-disabled-font-color!important;
+      border: 1px solid $btn-disabled-border-color!important;
+      cursor: not-allowed!important;
+      box-shadow: none!important;
+    }
+  }
+}
+
+.gd-btn + .gd-btn {
+  margin-left: 10px;
+}
+.gd-btn-info + .gd-btn-info {
+  margin-left: 5px;
+}
+
+.gd-btn-primary {
+  @include gd-btn($btn-primary-bg-color, $btn-primary-border-color, $btn-primary-font-color, $btn-primary-hover-bg-color, $btn-primary-hover-border-color, $btn-primary-hover-font-color);
+}
+
+.gd-btn-info {
+  @include gd-btn($btn-info-bg-color, $btn-info-border-color, $btn-info-font-color, $btn-info-hover-bg-color, $btn-info-hover-border-color, $btn-info-hover-font-color);
+}
+
+.gd-btn-danger {
+  @include gd-btn($btn-danger-bg-color, $btn-danger-border-color, $btn-danger-font-color, $btn-danger-hover-bg-color, $btn-danger-hover-border-color, $btn-danger-hover-font-color);
+}
+
+.gd-btn-primary-solid {
+  @include gd-btn($btn-primary-font-color, $btn-primary-border-color, $btn-primary-bg-color, darken($btn-primary-font-color, 5%), darken($btn-primary-border-color, 5%), $btn-primary-bg-color);
+}
+
+.gd-btn-ghost {
+  @include gd-btn(transparent, $slate-grey, $slate-grey, transparent, white, white);
+}
+
+.gd-btn-thin {
+  &, &:hover, &.hover, &:focus {
+    line-height: $btn-height-thin;
+  }
+}
+
+.gd-btn-thick {
+  &, &:hover, &.hover, &:focus {
+    line-height: $btn-height-thick;
+  }
+}
+
+.gd-btn-narrow {
+  &, &:hover, &.hover, &:focus {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.gd-btn-small {
+  @extend .gd-btn-narrow;
+  @extend .gd-btn-thin;
+}
+
+.gd-btn-wide {
+  &, &:hover, &.hover, &:focus {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.gd-btn-icon {
+  padding: 0;
+  width: $btn-height-normal + 2px;
+  font-size: 22px;
+  i{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .gd-icon-list {
+    font-size: 18px;
+    line-height: 18px;
+    margin-top: -3px;
+  }
+  .gd-icon-qrcode {
+    font-size: 21px;
+    line-height: 21px;
+    margin-top: -3px;
+  }
+  .gd-icon-bars {
+    font-size: 18px;
+    line-height: 18px;
+    margin-top: -2px;
+  }
+  &.gd-btn-thin {
+    width: $btn-height-thin + 2px;
+    font-size: 20px;
+    .gd-icon-list {
+      font-size: 15px;
+      line-height: 15px;
+    }
+    .gd-icon-font-weight {
+      vertical-align: top;
+    }
+  }
+}
+
+.gd-btn-icon-sm {
+  font-size: 14px;
+  @include square(20px);
+  line-height: 18px;
+  i {
+    display: block;
+  }
+}
+
+.gd-btn-icon-lg {
+  font-size: 24px;
+  @include square(43px);
+  line-height: 41px;
+}
+
+.gd-btn-link {
+  padding: 0;
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.gd-btn-block {
+  display: block;
+  width: 100%;
+}
+
+.gd-btn-group {
+  @extend .clearfix;
+  .gd-btn {
+    @include gd-btn($btn-primary-bg-color, $btn-info-border-color, $btn-info-font-color, $btn-primary-bg-color, $btn-info-border-color, $btn-primary-border-color);
+    border-radius: 0;
+    margin: 0;
+    float:left;
+    & + .gd-btn {
+      margin-left: -1px;
+    }
+    &.selected {
+      @include gd-btn($btn-primary-border-color, $btn-primary-border-color, $btn-primary-hover-font-color, $btn-primary-border-color, $btn-primary-border-color, $btn-primary-hover-font-color);
+    }
+    &.selected {
+      & + .gd-btn {
+        border-left-color: $btn-primary-border-color;
+      }
+    }
+    &:first-child {
+      @include border-left-radius(2px);
+    }
+    &:last-child {
+      @include border-right-radius(2px);
+    }
+  }
+  &.gd-btn-group-thin {
+    .gd-btn {
+      @extend .gd-btn-thin;
+    }
+  }
+}
+
+.gd-btn-paid-feature {
+  @include gd-btn(white, $main-theme-color, $main-theme-color, $main-theme-color, $main-theme-color, white);
+  &, &:hover, &.hover, &:focus {
+    padding-left: 4px;
+    padding-right: 4px;
+    line-height: 1.3em;
+  }
+}

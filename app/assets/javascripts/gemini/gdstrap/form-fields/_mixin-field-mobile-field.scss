@@ -1,0 +1,51 @@
+@mixin sms-verification {
+  $total-width: 100%;
+  $add-on-width: 40%;
+  $verification-gap-width: 2%;
+  @include phone-device {
+    $add-on-width: 45%;
+  }
+  .sms-verification {
+    @include clearfix;
+    width: $total-width;
+    @include form-control-max-width;
+    margin-top: 5px;
+    .send-token-link {
+      float: left;
+      width: $add-on-width;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .verification-token {
+      float: left;
+      width: $total-width - $add-on-width - $verification-gap-width;
+      margin-right: $verification-gap-width;
+    }
+  }
+}
+
+
+@mixin field-mobile-field {
+  .field-mobile-field {
+    @include sms-verification;
+    .mobile-checked {
+      color: $mobile-verified;
+    }
+
+    &.custom-grids {
+      $add-on-width: 95px;
+      .sms-verification {
+        max-width: none;
+
+        .send-token-link {
+          width: $add-on-width;
+        }
+
+        .verification-token {
+          width: calc(100% - 100px);
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

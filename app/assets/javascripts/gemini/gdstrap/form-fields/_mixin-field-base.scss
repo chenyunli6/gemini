@@ -1,0 +1,332 @@
+@mixin form-header {
+  .form-header {
+    border-bottom: 1px solid $slate-grey-light;
+  }
+  .form-title {
+    font-size: $form-title-font-size;
+    padding: 25px $form-padding-horizontal 10px;
+    margin: 0;
+  }
+  .form-description {
+    padding: 3px $form-padding-horizontal 8px;
+    &:empty {
+      display: none;
+    }
+    ul {
+      list-style: disc inside;
+    }
+    img {
+      max-width: 100%;
+    }
+    p {
+      line-height: 1.6;
+    }
+  }
+  @include phone-device {
+    .form-title, .form-description {
+      padding-left: $field-padding-horizontal-phone;
+      padding-right: $field-padding-horizontal-phone;
+    }
+    .form-description {
+      p {
+        line-height: 1.5;
+      }
+    }
+  }
+  @include preview-phone-device {
+    .form-title, .form-description {
+      padding-left: $field-padding-horizontal-phone-for-preview;
+      padding-right: $field-padding-horizontal-phone-for-preview;
+    }
+  }
+}
+
+@mixin form-banner {
+  .banner {
+    max-width: 100%;
+    position: relative;
+    .banner-text {
+      padding: 11px 30px;
+      min-height: 44px;
+      &:empty {
+        display: none;
+      }
+      @media (max-width: $screen-xs-max) {
+        padding: {
+          left: 15px;
+          right: 15px;
+        }
+      }
+    }
+    .banner-img {
+      line-height: 0;
+    }
+    .header-image {
+      max-width: 100%;
+    }
+  }
+}
+
+@mixin form-control-max-width($max-width: $form-control-max-width) {
+  max-width: $max-width;
+  @include phone-device {
+    max-width: none;
+  }
+}
+
+@mixin full-width-input-group {
+  .gd-input-prepend, .gd-input-append {
+    position: relative;
+    .add-on:last-child {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .add-on:first-child {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  .gd-input-append {
+    padding-right: 25px;
+  }
+  .gd-input-prepend {
+    padding-left: 25px;
+  }
+}
+
+@mixin icon-grid($num) {
+  $width: 16px;
+  width: $width;
+  border-left-width: $width * $num / 4;
+}
+
+@mixin field-icons($width) {
+  position: relative;
+  > .icons {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    text-align: center;
+    width: $width - 5px;
+
+    [data-role='private_indicator'] {
+      cursor: pointer !important;
+      color: $warning-color;
+    }
+
+    [class^="icon-grid-"], [class*=" icon-grid-"] {
+      height: 4px;
+      border: 1px solid $warning-color;
+      display: inline-block;
+      margin: 6px 0;
+    }
+
+    @for $i from 1 through 3 {
+      .icon-grid-#{$i} { @include icon-grid($i); }
+    }
+  }
+}
+
+@mixin field-common {
+  .field {
+    padding-top: $field-space / 2;
+    padding-bottom: $field-space / 2;
+    position: relative;
+    @include phone-device {
+      padding-left: $field-padding-horizontal-phone;
+      padding-right: $field-padding-horizontal-phone;
+    }
+    @include preview-phone-device {
+      padding-left: $field-padding-horizontal-phone-for-preview;
+      padding-right: $field-padding-horizontal-phone-for-preview;
+    }
+    word-wrap: break-word;
+
+    &.required {
+      .field-label:after {
+        content: '*';
+        color: $watermelon;
+        margin-top: 1px;
+        display: inline-block;
+        line-height: 0;
+        vertical-align: middle;
+      }
+    }
+    &.new-row {
+      clear: left;
+    }
+    &.has-error {
+      .inline-error {
+        color: $form-control-error-color;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    .field-label {
+      position: relative;
+      line-height: 1.4;
+      font-size: $form-field-title-font-size;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .field-description {
+      color: $form-field-description-color;
+      margin-top: -3px;
+      margin-bottom: 6px;
+      p {
+        line-height: 1.5;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+
+    @include phone-device {
+      .field-description {
+        p {
+          line-height: 1.4;
+        }
+      }
+    }
+
+    input,
+    select,
+    textarea,
+    table {
+      margin-bottom: 0;
+    }
+
+    select,
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="tel"] {
+      background-color: $form-control-bg-color;
+      &:not(.fixed-width-control) {
+        width: 100%;
+        @include form-control-max-width;
+      }
+    }
+
+    &.custom-grids {
+      select,
+      input[type="text"],
+      input[type="date"],
+      input[type="number"],
+      input[type="email"],
+      input[type="url"],
+      input[type="tel"] {
+        &:not(.fixed-width-control) {
+          width: 100%;
+          max-width: none;
+        }
+      }
+
+    }
+
+    textarea {
+      width: 100%;
+      resize: none;
+      background-color: $form-control-bg-color;
+      min-height: $form-control-height-normal;
+      @include phone-device($include-preview: false) {
+        min-height: $form-control-height-mobile;
+      }
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    input[type="url"],
+    input[type="tel"],
+    textarea {
+      @include appearance(none);
+    }
+
+    select,
+    input[type="text"]:not(.other-choice-input),
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"] {
+      @include phone-device($include-preview: false) {
+        height: $form-control-height-mobile;
+      }
+    }
+    .add-on {
+      @include phone-device($include-preview: false) {
+        height: $form-control-height-mobile;
+        line-height: $form-control-height-mobile - 1px;
+      }
+    }
+    .gd-btn {
+      @include phone-device($include-preview: false) {
+        font-size: 1em;
+        height: $form-control-height-mobile;
+        line-height: $form-control-height-mobile;
+      }
+    }
+    .gd-input-container {
+      @include phone-device($include-preview: false) {
+        input {
+          padding-left: 25px;
+        }
+        .gd-input-icon {
+          top: 0;
+          font-size: 1.1em;
+          line-height: $form-control-height-mobile;
+        }
+      }
+    }
+  }
+}
+
+@mixin error-explanation {
+  .error-explanation {
+    border: 1px solid $error-color;
+    text-shadow: 1px 1px white;
+    border-radius: 2px;
+    color: $error-color;
+    padding: 3px 6px 3px 5px;
+    min-height: 28px;
+    margin-bottom: 15px;
+    ul {
+      list-style-type: none;
+      margin: 5px;
+    }
+  }
+
+  .form-error-messages-modal .error-explanation {
+    color: #666;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    h5 {
+      font-size: 14px;
+      margin: 0 0 10px;
+      padding: 0;
+    }
+  }
+}
+

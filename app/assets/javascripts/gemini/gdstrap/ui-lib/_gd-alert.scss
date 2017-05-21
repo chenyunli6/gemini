@@ -1,0 +1,95 @@
+.alert {
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  margin: 10px 0;
+  padding: 6.5px 25px;
+  .close {
+    color: inherit;
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    margin-top: -11px;
+    @include opacity(.7);
+    &:hover,
+    &:focus {
+      @include opacity(1);
+    }
+  }
+  &.gd-alert-reversed {
+    color: #FFF;
+    &.alert-info {
+      background: $alert-info-border;
+    }
+    &.alert-success {
+      background: $sea-blue-light;
+      border-color: $sea-blue;
+    }
+    &.alert-warning {
+      background: $alert-warning-border;
+    }
+    &.alert-danger {
+      background: $alert-danger-border;
+    }
+  }
+
+  &.alert-thin {
+    padding: 3px 10px;
+  }
+
+  &.alert-block {
+    display: block;
+  }
+}
+
+.flash-notifications {
+  width: 100%;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  text-align: center;
+  z-index: $zindex-flash-notification;
+  .alert {
+    @extend .gd-alert-reversed;
+    @include box-shadow-normal;
+  }
+}
+
+.system-warnings {
+  text-align: center;
+  .alert {
+    display: block;
+    border-radius: 0;
+    a:not(.close) {
+      color: #FFF;
+      text-decoration: underline;
+      &:hover {
+        color: #FFF;
+      }
+    }
+    .close {
+      font-size: $font-size-base;
+      float: none;
+      position: initial;
+    }
+  }
+}
+
+.top-warning {
+  top: 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  padding: 7px 5px;
+  line-height: 150%;
+  font-size: 14px;
+  z-index: $zindex-goods-warning;
+  i {
+    font-size: 15px;
+    margin-right: 4px;
+  }
+  &.goods-warning {
+    background-color: $watermelon;
+    color: white;
+  }
+}

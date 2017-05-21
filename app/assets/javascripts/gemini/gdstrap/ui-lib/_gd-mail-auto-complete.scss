@@ -1,0 +1,27 @@
+.gd-mail-auto-complete-list-box {
+  border: 1px solid rgba(0,0,0,0.10);
+  background: #fff;
+  margin-top: 1.5px;
+  box-shadow: 0 5px 7px rgba(0,0,0,0.20);
+}
+
+.gd-mail-auto-complete-list-default-box {
+  padding-left: 5px;
+  padding-top: 3px;
+  height: 30px;
+  border-bottom: 0.1em solid #e6e6e6;
+  color: #3D8EF0;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.gd-mail-auto-complete-focus-box {
+  @extend .gd-mail-auto-complete-list-default-box;
+  background-color: #F8F8F8
+}
+
+.gd-mail-auto-complete-mark-box {
+  color: #808080;
+}

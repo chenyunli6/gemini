@@ -1,0 +1,63 @@
+.modal {
+  .modal-content {
+    border-radius: 6px;
+    overflow: hidden;
+    @include box-shadow(0 1px 5px rgba(#000, 0.11));
+  }
+  .modal-header {
+    color: $text-color;
+    border-bottom: 1px solid $dark-grey-lightest;
+    padding: 15px 25px;
+    .icon {
+      margin-right: 10px;
+    }
+    .desc {
+      color: $desc-color;
+      margin-left: 10px;
+      font-size: 12px;
+    }
+    .close {
+      font-size: 22px;
+      text-shadow: none;
+      color: $slate-grey-light;
+      @include opacity(1);
+      margin-top: 0;
+      margin-right: -2px;
+      &:hover {
+        color: $dark-grey;
+      }
+    }
+  }
+  .modal-body {
+    padding: 15px 25px;
+    overflow-y: auto;
+    p.message {
+      font-size: 16px;
+    }
+    form {
+      margin: 0;
+      padding: 0;
+    }
+    .alert {
+      min-height: 0;
+    }
+    .content-section {
+      border: none;
+      .section-body {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  .modal-footer {
+    text-align: left;
+    padding: 15px 25px;
+    border-top: 1px solid $dark-grey-lightest;
+  }
+
+  &.warning {
+    .modal-header {
+      color: $error-color;
+    }
+  }
+}

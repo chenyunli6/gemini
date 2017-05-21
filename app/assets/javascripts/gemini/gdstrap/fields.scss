@@ -1,0 +1,97 @@
+@import "form-fields/*";
+
+@include field-common;
+@include field-likert-field;
+@include field-date-field;
+@include field-time-field;
+@include field-drop-down-field;
+@include field-cascade-drop-down;
+@include field-mobile-field;
+@include field-choice-field;
+@include field-section-break;
+@include field-submit-field;
+@include field-attachment-field;
+
+$font-size-base-mobile: 14px;
+$mobile-screen-width: 375px;
+
+.phone-device-shell {
+  padding: 0 20px;
+  max-width: $mobile-screen-width + 40px;
+  border-left: 4px double $graphite-black;
+  border-right: 4px double $graphite-black;
+
+  .phone-device-screen {
+    background-color: white;
+    border-left: 1px solid $graphite-black;
+    border-right: 1px solid $graphite-black;
+    font-size: $font-size-base-mobile;
+    padding: 20px 0;
+  }
+}
+
+#fields_global, #fields_general, #fields_contact, #fields_order {
+  .demo {
+    $fields-padding-horizontal: calc(23px - 2%);
+    .fields {
+      padding-left: $fields-padding-horizontal;
+      padding-right: $fields-padding-horizontal;
+      width: calc(700px - 2% * 2);
+      max-width: 100%;
+    }
+
+    .field-label {
+      font-weight: bold;
+    }
+
+    .phone-device-screen {
+      .fields {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .field-demo-title {
+      margin-left: calc(30px - 2%);
+      margin-right: calc(30px - 2%);
+      margin-bottom: 0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $border-color;
+      font-weight: bold;
+    }
+  }
+}
+
+// mock tablesaw on screen with max-width: 39.9375em
+.phone-device {
+  .tablesaw-stack thead td,
+  .tablesaw-stack thead th {
+    display: none;
+  }
+
+  .tablesaw-stack tbody td,
+  .tablesaw-stack tbody th {
+    clear: left;
+    float: left;
+    width: 100%;
+  }
+
+  .tablesaw-cell-label {
+    vertical-align: top;
+  }
+
+  .tablesaw-stack td .tablesaw-cell-label,
+  .tablesaw-stack th .tablesaw-cell-label {
+    display: inline-block !important;
+  }
+
+  .tablesaw-cell-content {
+    max-width: 67%;
+    display: inline-block;
+  }
+
+  .tablesaw-stack td:empty,
+  .tablesaw-stack th:empty {
+    display: none;
+  }
+}

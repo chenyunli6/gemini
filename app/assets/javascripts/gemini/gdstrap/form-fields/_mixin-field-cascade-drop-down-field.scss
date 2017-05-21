@@ -1,0 +1,20 @@
+@mixin field-cascade-drop-down {
+  .field-cascade-drop-down {
+    .dropdown-wrapper {
+      @include form-control-max-width(160px);
+    }
+
+    &.custom-grids:not(.col-md-3) {
+      $dropdown-width: calc(50% - 2.5px);
+      @include clearfix;
+      .dropdown-wrapper {
+        width: $dropdown-width;
+        float: left;
+        max-width: none;
+        & + .dropdown-wrapper {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

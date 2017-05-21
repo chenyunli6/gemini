@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Gemini::VERSION
   s.authors     = ["Chen Yunli"]
   s.email       = ["18301662790@163.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Gemini."
-  s.description = "TODO: Description of Gemini."
+  s.homepage    = "http://www.jiaji.com"
+  s.summary     = "Summary of Gemini."
+  s.description = "Description of Gemini."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]

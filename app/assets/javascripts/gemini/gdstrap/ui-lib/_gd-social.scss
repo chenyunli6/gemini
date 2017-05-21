@@ -1,0 +1,164 @@
+@mixin social-share-icon($size) {
+  a {
+    display: inline-block;
+    cursor: pointer;
+    width: #{$size}px;
+    height: #{$size}px;
+    background: image-url("icons_social_sharing.png") no-repeat;
+    background-size: #{$size*6}px #{$size*2}px;
+    margin: 0 3px;
+
+    &.share-sinaminiblog {
+      background-position: 0 0;
+      &:hover, &:active {
+        background-position: 0 -#{$size}px;
+      }
+    }
+
+    &.share-qqmb {
+      background-position: -#{$size}px 0;
+      &:hover, &:active {
+        background-position: -#{$size}px -#{$size}px;
+      }
+    }
+
+    &.share-qzone {
+      background-position: -#{$size*2}px 0;
+      &:hover, &:active {
+        background-position: -#{$size*2}px -#{$size}px;
+      }
+    }
+
+    &.share-renren {
+      background-position: -#{$size*3}px 0;
+      &:hover, &:active {
+        background-position: -#{$size*3}px -#{$size}px;
+      }
+    }
+
+    &.share-weixin {
+      background-position: -#{$size*4}px 0;
+      &:hover, &:active {
+        background-position: -#{$size*4}px -#{$size}px;
+      }
+    }
+
+    &.share-mingdao {
+      background-position: -#{$size*5}px 0;
+      &:hover, &:active {
+        background-position: -#{$size*5}px -#{$size}px;
+      }
+    }
+
+  }
+}
+
+@mixin weixin-share-guide {
+  .weixin-share-guide {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(#000, 0.8);
+    color: #FFF;
+    .guide-text {
+      background: image-url("mobile/weixin_guide_text.png");
+      background-size: 160px 25px;
+      width: 160px;
+      height: 25px;
+      position: absolute;
+      top: 104px;
+      right: 140px;
+    }
+    .share-screenshot {
+      background: image-url("mobile/weixin_share_screenshot.png");
+      background-size: 293px 108px;
+      width: 293px;
+      height: 108px;
+      border-radius: 8px;
+      position: absolute;
+      left: 50%;
+      top: 143px;
+      margin-left: -146px;
+    }
+    .guide-arrow {
+      background: image-url("mobile/weixin_guide_arrow.png");
+      background-size: 109px 119px;
+      width: 109px;
+      height: 119px;
+      position: absolute;
+      right: 28px;
+      top: 0;
+    }
+  }
+}
+.gd-social-share {
+  margin-top: 5px;
+
+  @include social-share-icon($social-sharing-grid-size);
+
+  &.success-social-sharing {
+    ul {
+      margin: 8px 0 10px;
+      li {
+        list-style: none;
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        width: 50px;
+        @include mobile-device {
+          width: 18%;
+          max-width: 70px;
+        }
+        a {
+          margin: 0 3px;
+        }
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+#weixin_qrcode_share_modal {
+  .modal-header h4 {
+    border: none;
+  }
+  .modal-body {
+    overflow: initial;
+  }
+  .qrcode-container {
+    text-align: center;
+    .sweep-text {
+      margin-bottom: 16px;
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+#weixin_login_section {
+  text-align: center;
+  #weixin_login {
+    max-height: 260px;
+    overflow: hidden;
+
+    canvas {
+      border: 1px solid $border-color;
+      padding: 15px;
+    }
+    .loading-img {
+      max-width: 20%;
+      padding: 120px 0;
+    }
+  }
+
+  .weixin-status-text {
+    margin-top: 10px;
+  }
+
+}

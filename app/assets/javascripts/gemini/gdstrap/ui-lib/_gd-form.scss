@@ -1,0 +1,331 @@
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+label {
+  display: block;
+  font-size: 1em;
+  max-width: 100%; // Force IE8 to wrap long content
+  margin-bottom: 5px;
+  font-weight: normal;
+  cursor: pointer;
+}
+input[type="search"] {
+  box-sizing: border-box;
+  @include appearance(none);
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  line-height: normal;
+}
+input[type="file"] {
+  display: block;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  width: 216px;
+  max-width: 100%;
+  height: $form-control-height-normal;
+  line-height: $form-control-height-normal;
+  @include placeholder-style {
+    line-height: inherit;
+  }
+  vertical-align: top;
+  padding: 0 6px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  font-weight: normal;
+  color: $text-color;
+  background: #FFF;
+  border: 1px solid $form-control-border-color;
+  border-radius: $form-control-border-radius;
+  @include placeholder($form-control-placeholder-color);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &:focus {
+    border-color: $form-control-border-focus-color;
+    outline: 0;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
+  }
+
+  &[disabled],
+  &[readonly] {
+    cursor: not-allowed;
+    background-color: $silver;
+    opacity: 1; // iOS fix for unreadable disabled content
+  }
+
+  &.gd-input-xxsmall { width:50px; }
+  &.gd-input-xsmall { width:74px; }
+  &.gd-input-small { width:104px; }
+  &.gd-input-medium { width:158px; }
+  &.gd-input-large { width:224px; }
+  &.gd-input-xlarge { width:284px; }
+  &.gd-input-xxlarge { width:544px; }
+
+  &.gd-input-thin {
+    height: $form-control-height-thin;
+    line-height: $form-control-line-height-thin;
+  }
+
+  &.gd-input-block {
+    width: 100%;
+  }
+}
+
+textarea {
+  height: auto;
+  line-height: 150%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+select {
+  width: 216px;
+  border: 1px solid $form-control-border-color;
+  background-color: white;
+}
+
+.radio, .checkbox {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: normal;
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: -2px 3px 0 1px;
+  }
+  &.inline {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0;
+    margin-right: 11px;
+    white-space: nowrap;
+  }
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: 0;
+}
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-left: 0;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled], &.disabled {
+    cursor: not-allowed;
+  }
+}
+
+
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: $dark-grey-light;
+  img {
+    max-width: 100%;
+    @include hack-firefox {
+      max-width: 640px; // Fix the bug of max-width not working in firefox
+    }
+  }
+}
+
+.help-block, .form-description {
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.help-inline {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 5px;
+}
+
+.form-horizontal {
+  @include clearfix;
+  .radio,
+  .checkbox {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 7px;
+    min-height: 20px;
+  }
+  .form-group {
+    @include clearfix;
+  }
+  .control-label, .field-label {
+    padding-top: 7px;
+    display: block;
+    float: left;
+    min-width: 80px;
+    text-align: right;
+  }
+  .controls {
+    margin-left: 10px;
+    display: inline-block;
+
+    .help-inline {
+      padding-top: 7px;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  &.error {
+    .checkbox, .radio,
+    input, select, textarea,
+    .control-label, .field-label, .help-block, .help-inline, .error-message {
+      color: $error-color;
+    }
+    input, select, textarea {
+      border: 1px solid $error-color;
+    }
+  }
+  &.highlight-title {
+    label {
+      font-weight: bold;
+      a {
+        font-weight: normal;
+      }
+    }
+  }
+  .dropdown-wrapper {
+    display: inline-block;
+  }
+}
+
+.gd-input-prepend, .gd-input-append {
+  @include clearfix;
+  text-align: left;
+  .add-on {
+    float: left;
+    vertical-align: top;
+    white-space: nowrap;
+    padding: 0 6px;
+    color: #555;
+    text-align: center;
+    background-color: $snow-white;
+    border: 1px solid $form-control-border-color;
+    font-size: 1em;
+    margin: 0;
+    height: $form-control-height-normal;
+    line-height: $form-control-height-normal - 1px;
+  }
+  a.add-on, button.add-on {
+    &:hover, &:active {
+      text-decoration: none;
+      background: $mouse-grey;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      background-color: $silver;
+      color: darken($silver, 10%);
+    }
+  }
+  input, .add-on-content {
+    float: left;
+    vertical-align: top;
+    font-size: 1em;
+    border-radius: $form-control-border-radius;
+    border: 1px solid $slate-grey-light;
+    height: $form-control-height-normal;
+    line-height: $form-control-height-normal;
+    &:disabled {
+      background: lighten($silver, 5%);
+      color: darken($silver, 8%);
+    }
+  }
+  .add-on-content {
+    padding: 0 6px;
+    line-height: $form-control-height-normal - 2px;
+  }
+  &.gd-input-thin {
+    .add-on, input, .add-on-content {
+      height: $form-control-height-thin;
+      line-height: $form-control-height-thin;
+    }
+  }
+}
+.gd-input-prepend {
+  .add-on:first-child {
+    @include border-left-radius($form-control-border-radius);
+    border-right: 0;
+  }
+  input, .add-on-content {
+    @include border-left-radius(0);
+  }
+}
+.gd-input-append {
+  * + .add-on{
+    @include border-right-radius($form-control-border-radius);
+    border-left: 0;
+  }
+  input, .add-on-content {
+    @include border-right-radius(0);
+  }
+}
+
+.gd-input-container {
+  position: relative;
+  input {
+    padding-left: 22px;
+  }
+  .gd-input-icon {
+    color: $desc-color;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+  input.gd-input-thin + .gd-input-icon {
+    top: 6px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+.form-condensed {
+  .form-group {
+    margin-bottom: 4px;
+    .control-label {
+      padding-top: 0;
+    }
+  }
+}
+
+.field_with_errors {
+  margin-bottom: 10px;
+  input, textarea, select {
+    border-color: $error-color;
+    margin-bottom: 0;
+  }
+  .has-error{
+    margin-top: 5px;
+  }
+}
