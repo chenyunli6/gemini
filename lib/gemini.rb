@@ -5,7 +5,4 @@ module Gemini
   require 'bootstrap-sass'
   require 'turbolinks'
   # require 'rqrcode'
-
-  Gemini::ApplicationHelper
-
 end

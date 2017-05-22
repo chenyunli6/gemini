@@ -1,4 +1,17 @@
-@import "form-fields/*";
+@import "form-fields/mixin-field-attachment-field";
+@import "form-fields/mixin-field-base";
+@import "form-fields/mixin-field-break-field";
+@import "form-fields/mixin-field-cascade-drop-down-field";
+@import "form-fields/mixin-field-choice-field";
+@import "form-fields/mixin-field-date-field";
+@import "form-fields/mixin-field-drop-down-field";
+@import "form-fields/mixin-field-goods-field";
+@import "form-fields/mixin-field-image-choice-field";
+@import "form-fields/mixin-field-likert-or-matrix-field";
+@import "form-fields/mixin-field-mobile-field";
+@import "form-fields/mixin-field-submit-field";
+@import "form-fields/mixin-field-text-field";
+@import "form-fields/mixin-field-time-field";
 
 @include field-common;
 @include field-likert-field;

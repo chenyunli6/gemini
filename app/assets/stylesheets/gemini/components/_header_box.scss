@@ -1,0 +1,60 @@
+.navbar-static-top {
+  margin-bottom: 17px;
+}
+
+.nav {
+  a {
+    color: $main-font-color;
+    &:hover, &:active {
+      color: $link-color;
+    }
+  }
+  li.active > a {
+    color: $link-color;
+  }
+}
+
+#header_box {
+  .app-info-container {
+    .nav-left {
+      line-height: inherit;
+      font-size: 16px;
+      .app-title-container {
+        padding-top: $navbar-padding-vertical;
+        display: inline-block;
+        color: #000000;
+        &:hover {
+          text-decoration: none;
+        }
+        .title-text {
+          color: $dark-grey-lighter !important;
+          cursor: pointer;
+        }
+        .title-active {
+          color: #000000 !important;
+        }
+      }
+    }
+    .app-logo {
+      @include square(37px);
+      display: inline;
+      margin-top: -8px;
+    }
+  }
+
+  .app-avatar-container {
+    .nav-right {
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .avatar {
+      @include square(19px);
+      border: 1px solid #fff;
+      border-radius: 100%;
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, .5);
+      display: inline-block;
+      margin-right: 5px;
+      padding: 0 0;
+    }
+  }
+}

@@ -1,9 +1,9 @@
 module Gemini
   module HeaderBox
     DEFAULT_APP_HEADER_OPTIONS = {
-      logo_url: 'default_logo.png',
+      logo_url: 'gemini/default_logo.png',
       titles: ['【应用名字】'], #mabey title have sub titles
-      avatar_img_url: 'default_avatar.png',
+      avatar_img_url: 'gemini/default_avatar.png',
       nickname: '【用户昵称或邮箱】',
       avatar_redirect_to: 'https://jinshuju.net' #click nickname will link to jinshuju
     }
